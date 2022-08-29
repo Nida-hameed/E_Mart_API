@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_Mart.Views.Customer.Register"
+             Title="Register" BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Padding="24,50,24,0" >
+            <Image Source="RegisterIcon.png" WidthRequest="200" HeightRequest="100"/>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,20,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="UserIcon.png" Aspect="AspectFill" Margin="4"/>
+                    </Frame>
+
+                    <Entry IsTextPredictionEnabled="True" Keyboard="Chat" Placeholder="Name" x:Name="txtName" TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,10,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="EmailIcon.png" Aspect="AspectFill" Margin="0"/>
+                    </Frame>
+                    <Entry Keyboard="Email" Placeholder="Email" x:Name="txtEmail"  TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,10,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="LocationIcon.png" Aspect="AspectFill" Margin="3"/>
+                    </Frame>
+                    <Entry Placeholder="Address" x:Name="txtAddress"  TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,10,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="PhoneIcon.png" Aspect="AspectFill" Margin="5"/>
+                    </Frame>
+                    <Entry Keyboard="Numeric" Placeholder="Phone No" x:Name="txtContact"  TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,10,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="LockIcon.png" Aspect="AspectFill" Margin="2"/>
+                    </Frame>
+
+                    <Entry IsPassword="True" Placeholder="Password" x:Name="txtPassword"  TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,10,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="ConfirmLockIcon.png" Aspect="AspectFill" Margin="4"/>
+                    </Frame>
+                    <Entry IsPassword="True" Placeholder="Confirm Password" x:Name="txtCPassword"  TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+
+                </StackLayout>
+            </Frame>
+
+            
+           
+            
+           
+           
+            <ActivityIndicator x:Name="ProgressInd" IsRunning="False"/>
+            <Button x:Name="btnRegister" Text="Register"  Margin="0, 5,0,0"  Clicked="btnRegister_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
