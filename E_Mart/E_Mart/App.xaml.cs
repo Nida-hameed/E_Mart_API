@@ -16,7 +16,7 @@ namespace E_Mart
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new Register();
+            MainPage = new Login();
         }
 
         protected override void OnStart()

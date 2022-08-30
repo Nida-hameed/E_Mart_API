@@ -36,7 +36,7 @@ namespace E_Mart.Views.Customer
 
 
                 var client = new HttpClient(httpClientHandler);
-                var uri = App.APIBaseURL + "api/CUSTOMER_tbl_API/loginchk/Id";
+                var uri = App.APIBaseURL + "api/CUSTOMER_tbl_API/loginchk ? Customer.CUSTOMER_EMAIL = " + txtEmail.Text + " & Customer.CUSTOMER_PASSWORD = " + txtPassword.Text;
                 var result = await client.GetStringAsync(uri);
                 CUSTOMER_tbl customer = JsonConvert.DeserializeObject<CUSTOMER_tbl>(result);
 
