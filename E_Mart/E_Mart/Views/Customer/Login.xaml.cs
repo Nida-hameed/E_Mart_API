@@ -34,11 +34,14 @@ namespace E_Mart.Views.Customer
 
                 ProgressInd.IsRunning = true;
 
-
-                var client = new HttpClient(httpClientHandler);
-                var uri = App.APIBaseURL + "api/CUSTOMER_tbl_API/loginchk ? Customer.CUSTOMER_EMAIL = " + txtEmail.Text + " & Customer.CUSTOMER_PASSWORD = " + txtPassword.Text;
-                var result = await client.GetStringAsync(uri);
-                CUSTOMER_tbl customer = JsonConvert.DeserializeObject<CUSTOMER_tbl>(result);
+                
+                var client = new HttpClient(httpClientHandler); 
+                var uri = App.APIBaseURL + "api/CUSTOMER_tbl_API/loginchk ? Customer.CUSTOMER_EMAIL = " + txtEmail.Text + " & Customer.CUSTOMER_PASSWORD = " + txtPassword.Text ;
+                string jsonData = JsonConvert.SerializeObject(new { CUSTOMER_EMAIL = txtEmail.Text, CUSTOMER_PASSWORD = txtPassword.Text });
+                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                var result = await client.PostAsync(uri, content);
+               
+                var customer = result;
 
 
                 App.Current.MainPage = new CustomerSideBar();

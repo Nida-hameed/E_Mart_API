@@ -61,25 +61,29 @@ namespace E_Mart.Views.Customer
                 };
 
                 var uri = App.APIBaseURL + "api/CUSTOMER_tbl_API/postcustomer";
-                var client = new HttpClient();
+
+                var client = new HttpClient(httpClientHandler);
+
                 string JsonData = JsonConvert.SerializeObject(cus);
                 StringContent StringData = new StringContent(JsonData, Encoding.UTF8, "application/json");
+
                 HttpResponseMessage responseMessage = await client.PostAsync(uri, StringData);
                 string responseData = await responseMessage.Content.ReadAsStringAsync();
 
 
 
 
-                //await DisplayAlert("message", response.Message, "ok");
+                
+              
                 if (responseData != "")
                 {
-                    await DisplayAlert("Info", "Email Already Existed.", "ok");
+                    await DisplayAlert("Message", "Email Already Existed.", "OK");
                     await Navigation.PushAsync(new Login());
                 }
                 if (responseData == "")
                 {
 
-                    await DisplayAlert("Success", "Successfully Created.", "ok");
+                    await DisplayAlert("Success", "Successfully Created!", "OK");
                     await Navigation.PushAsync(new Login());
                 }
 

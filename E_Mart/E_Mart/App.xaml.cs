@@ -9,14 +9,15 @@ namespace E_Mart
 {
     public partial class App : Application
     {
-        public static string APIBaseURL = "https://mall.damascuschefknives.com/";
+         public static string APIBaseURL = "https://mall.damascuschefknives.com/";
+        //public static string APIBaseURL = "https://mall.bollywoodlounge.nu/";
      
         public App()
         {
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new Login();
+            MainPage = new Views.Shop.Shops();
         }
 
         protected override void OnStart()

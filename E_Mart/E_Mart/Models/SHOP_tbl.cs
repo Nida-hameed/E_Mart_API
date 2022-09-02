@@ -12,6 +12,8 @@ namespace E_Mart.Models
         public string SHOP_ADDRESS { get; set; }
         
         public string SHOP_IMAGE { get; set; }
+        
+        public string ImageURL{ get; set; }
 
         public int SHP_CATEGORY_FID { get; set; }
 
