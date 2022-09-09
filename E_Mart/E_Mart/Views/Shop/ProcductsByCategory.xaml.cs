@@ -1,6 +1,5 @@
 ﻿using E_Mart.Models;
 using E_Mart.Utills;
-using E_Mart.Utills.Response;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,45 +14,45 @@ using Xamarin.Forms.Xaml;
 namespace E_Mart.Views.Shop
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Products : ContentPage
+    public partial class ProcductsByCategory : ContentPage
     {
         APICall api = new APICall();
-        public Products(SHOP_tbl shp)
+        public ProcductsByCategory(PRO_CATEGORY_tbl p )
         {
             InitializeComponent();
-            LoadData(shp.SHOP_ID); 
+            LoadData(p.PRO_CATEGORY_ID);
         }
-        private async void LoadData(int sHOP_ID)
+
+        private async void LoadData(int pRO_CATEGORY_ID)
         {
             try
             {
-                var responseData = await api.CallApiGetAsync<GetCategoryAndProductsByShopIdResponse>("api/shop/GetCategoryAndProductsByShopId/" + sHOP_ID);
-                ListData.ItemsSource = responseData.Products;
-                ProductCtegories.ItemsSource = responseData.Categories;
+                var responseData =await api.CallApiGetAsync<List<PRODUCT_tbl>>("api/PRODUCT_tbl_API/ProductByCategory/" + pRO_CATEGORY_ID);
+                ListData.ItemsSource = responseData;
+
             }
+
             catch (Exception ex)
             {
 
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
             }
         }
+
+
+
+
         private async void collectionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             await UpdateSelectionDataAsync(e.CurrentSelection);
         }
         async Task UpdateSelectionDataAsync(IEnumerable<object> currentSelected)
         {
-            var selected = currentSelected.FirstOrDefault() as PRO_CATEGORY_tbl;
-            await Navigation.PushAsync(new ProcductsByCategory(selected));
-        }
-        private async void collectionList1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            await UpdateSelectionDataAsync1(e.CurrentSelection);
-        }
-        async Task UpdateSelectionDataAsync1(IEnumerable<object> currentSelected)
-        {
             var selected = currentSelected.FirstOrDefault() as PRODUCT_tbl;
+            //App.Current.MainPage = new NavigationPage(new ProductDetail(selected));
             await Navigation.PushAsync(new ProductDetail(selected));
         }
+
+
     }
 }

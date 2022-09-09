@@ -1,4 +1,5 @@
 ﻿using E_Mart.Models;
+using E_Mart.Utills;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,18 +15,15 @@ namespace E_Mart.Views.Customer
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Register : ContentPage
     {
+        APICall api = new APICall();
         public Register()
         {
             InitializeComponent();
         }
-
-
         private async void btnRegister_Clicked(object sender, EventArgs e)
         {
-
             try
             {
-                
 
                 if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtContact.Text) || string.IsNullOrEmpty(txtAddress.Text) || string.IsNullOrEmpty(txtPassword.Text))
                 {
@@ -43,12 +41,6 @@ namespace E_Mart.Views.Customer
 
                 ProgressInd.IsRunning = true;
 
-
-                var httpClientHandler = new HttpClientHandler();
-                httpClientHandler.ServerCertificateCustomValidationCallback =
-                    (message, certificate, chain, sslPolicyErrors) => true;
-
-
                 CUSTOMER_tbl cus = new CUSTOMER_tbl()
                 {
 
@@ -60,27 +52,24 @@ namespace E_Mart.Views.Customer
 
                 };
 
-                var uri = App.APIBaseURL + "api/CUSTOMER_tbl_API/postcustomer";
+                var responseData = await api.CallApiGetAsync<CUSTOMER_tbl>("api/CUSTOMER_tbl_API/postcustomer");
 
-                var client = new HttpClient(httpClientHandler);
+                //var uri = App.APIBaseURL + "api/CUSTOMER_tbl_API/postcustomer";
 
-                string JsonData = JsonConvert.SerializeObject(cus);
-                StringContent StringData = new StringContent(JsonData, Encoding.UTF8, "application/json");
+                //var client = new HttpClient(httpClientHandler);
 
-                HttpResponseMessage responseMessage = await client.PostAsync(uri, StringData);
-                string responseData = await responseMessage.Content.ReadAsStringAsync();
+                //string JsonData = JsonConvert.SerializeObject(cus);
+                //StringContent StringData = new StringContent(JsonData, Encoding.UTF8, "application/json");
 
+                //HttpResponseMessage responseMessage = await client.PostAsync(uri, StringData);
+                //string responseData = await responseMessage.Content.ReadAsStringAsync();
 
-
-
-                
-              
-                if (responseData != "")
+                if (responseData != null)
                 {
                     await DisplayAlert("Message", "Email Already Existed.", "OK");
                     await Navigation.PushAsync(new Login());
                 }
-                if (responseData == "")
+                if (responseData == null)
                 {
 
                     await DisplayAlert("Success", "Successfully Created!", "OK");

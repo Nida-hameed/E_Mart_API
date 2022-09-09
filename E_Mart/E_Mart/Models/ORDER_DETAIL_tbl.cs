@@ -16,5 +16,9 @@ namespace E_Mart.Models
 
         public decimal SALE_PRICE { get; set; }
 
+        public string PRODUCT_NAME { get; set; }
+        public string ImageURL1 { get; set; }
+
+
     }
 }

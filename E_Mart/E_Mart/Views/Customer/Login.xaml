@@ -28,19 +28,16 @@
                     <Entry IsPassword="True"  x:Name="txtPassword" TextColor="Black" Placeholder="Enter Password" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
                 </StackLayout>
             </Frame>
-            
-            
+
             <ActivityIndicator x:Name="ProgressInd" IsRunning="False"/>
             <Button x:Name="btnLogin" Text="Log in"  Margin="0, 5,0,0" Clicked="btnLogin_Clicked"/>
 
-            <Label Text="Create New Account?"  HorizontalOptions="CenterAndExpand">
+            <Label Text="Create New Account?" TextColor="Black"  HorizontalOptions="CenterAndExpand">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
                     </TapGestureRecognizer>
                 </Label.GestureRecognizers>
             </Label>
-
-          
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

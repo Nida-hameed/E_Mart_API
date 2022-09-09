@@ -1,46 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="E_Mart.Views.Shop.Products" Title="Products" BackgroundColor="White">
-
+             x:Class="E_Mart.Seller.BPairItems">
     <ContentPage.Content>
-       
         <StackLayout>
 
-            <!--<StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
+            <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
                 <Label TextColor="Black" FontSize="Medium" Padding="30,30,0,10" FontAttributes="Bold" Text="Discover"/>
-            </StackLayout>-->
-            <CollectionView x:Name="ProductCtegories" SelectionMode="Single"  SelectionChanged="collectionList_SelectionChanged" 
-                ItemsLayout="HorizontalList" HeightRequest="60">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
+            </StackLayout>
 
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="10" />
 
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
+            <Image Source="SHOPS.gif" Aspect="Fill"  Margin="10,0,10,10" HeightRequest="120" IsAnimationPlaying="True"  />
 
-                                <ColumnDefinition Width="80*"/>
-
-                            </Grid.ColumnDefinitions>
-
-                            <Label Grid.Row="1"
-                       Grid.ColumnSpan="1"  
-                       Text="{Binding PRO_CATEGORY_NAME}"
-                       FontAttributes="Bold" TextColor="Black"
-                       FontSize="14" Padding="30,0,0,0"/>
-
-                        </Grid>
-                    </DataTemplate>
-
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
-            <Image Source="ProductsBG.gif" Aspect="Fill"  Margin="10,0,10,10" HeightRequest="120" IsAnimationPlaying="True"  />
-
-            <CollectionView x:Name="ListData" SelectionMode="Single"  SelectionChanged="collectionList1_SelectionChanged" ItemsLayout="VerticalGrid, 2">
+            <CollectionView x:Name="ListData" SelectionMode="Single"   ItemsLayout="VerticalGrid, 2">
 
 
                 <CollectionView.ItemTemplate >
@@ -73,8 +45,8 @@
                             <Frame  Grid.RowSpan="4" 
                               Grid.ColumnSpan="2" Padding="3">
                                 <Image 
-                                Source="{Binding ImageURL1}"
-                                x:Name="proimage"
+                                Source="{Binding ImageURL}"
+                                x:Name="artimage"
                                 Aspect="Fill"
                                 HeightRequest="150"
                                 WidthRequest="150" />
@@ -83,7 +55,7 @@
 
                             <Label Grid.Row="4"
                        Grid.ColumnSpan="2" 
-                       Text="{Binding PRODUCT_NAME}"
+                       Text="{Binding SHOP_NAME}"
                        FontAttributes="Bold" TextColor="black"
                        FontSize="14" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  />
 

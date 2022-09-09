@@ -1,4 +1,5 @@
 ﻿using E_Mart.Models;
+using E_Mart.Utills;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,15 +16,13 @@ namespace E_Mart.Views.Customer
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Login : ContentPage
     {
+        APICall api = new APICall();
         public Login()
         {
             InitializeComponent();
         }
         private async void btnLogin_Clicked(object sender, EventArgs e)
         {
-            var httpClientHandler = new HttpClientHandler();
-            httpClientHandler.ServerCertificateCustomValidationCallback = (message, certificate, chain, sslPolicyErrors) => true;
-
             if (string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrEmpty(txtPassword.Text))
             {
                 await DisplayAlert("Error", "Please fillout all requried fields!", "OK");
@@ -31,44 +30,30 @@ namespace E_Mart.Views.Customer
             }
             try
             {
-
                 ProgressInd.IsRunning = true;
 
-                
-                var client = new HttpClient(httpClientHandler); 
-                var uri = App.APIBaseURL + "api/CUSTOMER_tbl_API/loginchk ? Customer.CUSTOMER_EMAIL = " + txtEmail.Text + " & Customer.CUSTOMER_PASSWORD = " + txtPassword.Text ;
-                string jsonData = JsonConvert.SerializeObject(new { CUSTOMER_EMAIL = txtEmail.Text, CUSTOMER_PASSWORD = txtPassword.Text });
-                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                var result = await client.PostAsync(uri, content);
-               
-                var customer = result;
-
-
-                App.Current.MainPage = new CustomerSideBar();
-                
+                var responseData = await api.CallApiGetAsync<CUSTOMER_tbl> ("api/CUSTOMER_tbl_API/loginchk ? Customer.CUSTOMER_EMAIL = " + txtEmail.Text + " & Customer.CUSTOMER_PASSWORD = " + txtPassword.Text);
+                if (responseData != null)
+                {
+                    App.LoggedInCustomer = responseData;
+                }
+                // App.Current.MainPage = new CustomerSideBar(); 
+                await Navigation.PushAsync(new Home());
             }
-
-
-
             catch (Exception ex)
             {
                 ProgressInd.IsRunning = false;
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
-
             }
-
-
         }
-
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            
-            await Navigation.PushAsync(new Register());
+            App.Current.MainPage = new NavigationPage(new Register());
         }
-
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            App.Current.MainPage = new StartUpPage();
+            //App.Current.MainPage = new StartUpPage();
+            await Navigation.PopAsync();
         }
     }
 }

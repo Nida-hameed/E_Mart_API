@@ -19,6 +19,10 @@ namespace E_Mart.Models
         public string ImageURL4 { get; set; }
 
         public string PRODUCT_DESCRIPTION { get; set; }
+        
+        
+        public string PRODUCT_SPECIFICATIONS { get; set; }
+
 
         public decimal PRODUCT_PURCHASEPRICE { get; set; }
 

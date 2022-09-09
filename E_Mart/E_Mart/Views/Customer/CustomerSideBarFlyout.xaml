@@ -9,7 +9,7 @@
               HasUnevenRows="true"
               ItemsSource="{Binding MenuItems}">
       <ListView.Header>
-        <Grid BackgroundColor="{StaticResource Primary}">
+        <Grid  BackgroundColor="{StaticResource Primary}" >
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="*"/>
@@ -22,6 +22,7 @@
             <RowDefinition Height="10"/>
           </Grid.RowDefinitions>
           <Label
+
               Grid.Column="1"
               Grid.Row="2"
               Text="E-MART"

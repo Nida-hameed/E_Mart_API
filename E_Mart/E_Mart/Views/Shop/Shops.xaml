@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="E_Mart.Views.Shop.Shops" Title="Shops">
+             x:Class="E_Mart.Views.Shop.Shops" Title="Shops" BackgroundColor="White">
    
     
     <ContentPage.Content>
@@ -10,7 +10,7 @@
             <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
                 <Label TextColor="Black" FontSize="Medium" Padding="30,30,0,10" FontAttributes="Bold" Text="Discover"/>
             </StackLayout>
-            <CollectionView x:Name="ShopCategories" SelectionMode="Single" 
+            <CollectionView x:Name="ShopCategories" SelectionMode="Single"  SelectionChanged="collectionList_SelectionChanged" 
                 ItemsLayout="HorizontalList" HeightRequest="60">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -38,9 +38,9 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Image Source="SHOPS.gif" Aspect="Fill"  Margin="10,0,10,10" HeightRequest="120" IsAnimationPlaying="True"  />
+            <Image Source="ShopsBG.gif" Aspect="Fill"  Margin="10,0,10,10" HeightRequest="120" IsAnimationPlaying="True"  />
 
-            <CollectionView x:Name="ListData" SelectionMode="Single"  SelectionChanged="collectionList_SelectionChanged" ItemsLayout="VerticalGrid, 2">
+            <CollectionView x:Name="ListData" SelectionMode="Single"  SelectionChanged="collectionList1_SelectionChanged" ItemsLayout="VerticalGrid, 2">
 
                
                 <CollectionView.ItemTemplate >

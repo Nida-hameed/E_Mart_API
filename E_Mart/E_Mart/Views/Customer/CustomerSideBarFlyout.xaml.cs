@@ -1,4 +1,5 @@
-﻿using System;
+﻿using E_Mart.Views.Shop;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -33,13 +34,14 @@ namespace E_Mart.Views.Customer
             {
                 MenuItems = new ObservableCollection<CustomerSideBarFlyoutMenuItem>(new[]
                 {
-                    new CustomerSideBarFlyoutMenuItem { Id = 0, Title = "Home",   },
-                    new CustomerSideBarFlyoutMenuItem { Id = 1, Title = "Shops",   },
+                    new CustomerSideBarFlyoutMenuItem { Id = 0, Title = "Home", TargetType= typeof(Home) },
+                    new CustomerSideBarFlyoutMenuItem { Id = 1, Title = "Shops",TargetType= typeof(Shops)   },
                     new CustomerSideBarFlyoutMenuItem { Id = 2, Title = "Cart",  },
                     new CustomerSideBarFlyoutMenuItem { Id = 3, Title = "Checkout" },
                     new CustomerSideBarFlyoutMenuItem { Id = 4, Title = "Contact Us" },
                     new CustomerSideBarFlyoutMenuItem { Id = 4, Title = "Wishlist" },
                     new CustomerSideBarFlyoutMenuItem { Id = 5, Title = "My Account" },
+                    new CustomerSideBarFlyoutMenuItem { Id = 6, Title = "Login & Register", TargetType= typeof(Login)},
                 });
             }
 

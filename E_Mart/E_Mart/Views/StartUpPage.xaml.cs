@@ -1,5 +1,6 @@
 ﻿
 using E_Mart.Models;
+using E_Mart.Views.Customer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,18 +18,12 @@ namespace E_Mart
         public StartUpPage()
         {
             InitializeComponent();
-
-
         }
-
         private void btnGetStarted_Clicked(object sender, EventArgs e)
         {
-            
-
-            App.Current.MainPage = new NavigationPage( new Views.Customer.Login());
- 
+            App.Current.MainPage = new CustomerSideBar();
+            //App.Current.MainPage = new NavigationPage( new Home());
         }
-
         private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
 

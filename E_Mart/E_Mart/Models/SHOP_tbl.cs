@@ -1,3 +1,5 @@
+using System;
+
 namespace E_Mart.Models
 {
 
@@ -23,6 +25,9 @@ namespace E_Mart.Models
 
         public int CITY_FID { get; set; }
 
-   
+        public static implicit operator int(SHOP_tbl v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
