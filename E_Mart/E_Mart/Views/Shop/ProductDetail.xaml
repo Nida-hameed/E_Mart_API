@@ -54,22 +54,26 @@
         <Grid>
             <StackLayout>
                 <Grid>
-                    <Frame Padding="0" HeightRequest="450"  BackgroundColor="White">
+                    <Frame Padding="0" HeightRequest="450"   BackgroundColor="White">
+                      
                         <Image 
                           
                           Source="{Binding ImageURL1}"
                           x:Name="Proimage"
-                          Aspect="Fill"
-                          Opacity="0.9"                   
+                          Aspect="AspectFill"
+                          Opacity="0.9" 
+                         
+                            
                        />
+                      
                     </Frame>
-                    <StackLayout VerticalOptions="EndAndExpand" Margin="15,15,15,35">
+                    <StackLayout VerticalOptions="EndAndExpand" Margin="20,15,90,35">
                         <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label x:Name="ProName" Text="{Binding PRODUCT_NAME}" Grid.Column="0" TextColor="Black" FontSize="24" FontAttributes="Bold" ></Label>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Label x:Name="ProName" Text="{Binding PRODUCT_NAME}" Grid.Column="0" TextColor="#dc5c50" FontSize="28" FontAttributes="Bold" ></Label>
                         </Grid>
 
                     </StackLayout>

@@ -3,59 +3,63 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="E_Mart.Views.Shop.ProcductsByCategory" BackgroundColor="White">
     <ContentPage.Content>
-        <CollectionView x:Name="ListData" SelectionMode="Single"  SelectionChanged="collectionList_SelectionChanged" ItemsLayout="VerticalGrid, 2">
+        <StackLayout>
+            <Image Source="CategoriesBG.gif" Aspect="Fill"  Margin="10,25,10,10" HeightRequest="120" IsAnimationPlaying="True"  />
+
+            <CollectionView x:Name="ListData" SelectionMode="Single"  SelectionChanged="collectionList_SelectionChanged" ItemsLayout="VerticalGrid, 2">
 
 
-            <CollectionView.ItemTemplate >
+                <CollectionView.ItemTemplate >
 
 
-                <DataTemplate>
-                    <Grid Padding="10">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup Name="CommonStates">
-                                <VisualState Name="Normal" />
-                                <VisualState Name="Selected">
-                                    <VisualState.Setters>
-                                        <Setter Property="BackgroundColor" Value="Transparent" />
-                                    </VisualState.Setters>
-                                </VisualState>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Normal" />
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                        </VisualState.Setters>
+                                    </VisualState>
 
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="50" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="70"/>
-                            <ColumnDefinition Width="70*"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="70*"/>
 
-                        </Grid.ColumnDefinitions>
-                        <Frame  Grid.RowSpan="4" 
+                            </Grid.ColumnDefinitions>
+                            <Frame  Grid.RowSpan="4" 
                               Grid.ColumnSpan="2" Padding="3">
-                            <Image 
+                                <Image 
                                 Source="{Binding ImageURL1}"
                                 x:Name="Proimage"
                                 Aspect="Fill"
                                 HeightRequest="150"
                                 WidthRequest="150" />
-                        </Frame>
+                            </Frame>
 
 
-                        <Label Grid.Row="4"
+                            <Label Grid.Row="4"
                        Grid.ColumnSpan="2" 
                        Text="{Binding PRODUCT_NAME}"
                        FontAttributes="Bold" TextColor="black"
                        FontSize="14" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  />
 
 
-                    </Grid>
+                        </Grid>
 
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
 
-        </CollectionView>
+            </CollectionView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
