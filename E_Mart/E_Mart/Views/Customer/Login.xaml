@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="E_Mart.Views.Customer.Login"
              Title="Login"  BackgroundColor="White">
-    <ContentPage.ToolbarItems>
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="Back" Clicked="ToolbarItem_Clicked" />
-    </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>-->
     <ContentPage.Content>
         <StackLayout Padding="24,100,24,0">
             <Image Source="LoginIcon.png"/>
@@ -29,7 +29,7 @@
                 </StackLayout>
             </Frame>
 
-            <ActivityIndicator x:Name="ProgressInd" IsRunning="False"/>
+            <!--<ActivityIndicator x:Name="ProgressInd" IsRunning="False"/>-->
             <Button x:Name="btnLogin" Text="Log in"  Margin="0, 5,0,0" Clicked="btnLogin_Clicked"/>
 
             <Label Text="Create New Account?" TextColor="Black"  HorizontalOptions="CenterAndExpand">

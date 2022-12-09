@@ -39,7 +39,7 @@ namespace E_Mart.Views.Customer
                 }
 
 
-                ProgressInd.IsRunning = true;
+                //ProgressInd.IsRunning = true;
 
                 CUSTOMER_tbl cus = new CUSTOMER_tbl()
                 {
@@ -52,24 +52,26 @@ namespace E_Mart.Views.Customer
 
                 };
 
-                var responseData = await api.CallApiGetAsync<CUSTOMER_tbl>("api/CUSTOMER_tbl_API/postcustomer");
+                // var addcustomer = await  api.CallApiPostAsync("api/CUSTOMER_tbl_API/postcustomer",cus);
 
-                //var uri = App.APIBaseURL + "api/CUSTOMER_tbl_API/postcustomer";
+               
+                var httpClientHandler = new HttpClientHandler();
+                httpClientHandler.ServerCertificateCustomValidationCallback =
+                (message, certificate, chain, sslPolicyErrors) => true;
+                var client = new HttpClient(httpClientHandler);
+                var uri = App.APIBaseURL + "api/CUSTOMER_tbl_API/postcustomer";
+                string JsonData = JsonConvert.SerializeObject(cus);
+                StringContent StringData = new StringContent(JsonData, Encoding.UTF8, "application/json");
 
-                //var client = new HttpClient(httpClientHandler);
+                HttpResponseMessage responseMessage = await client.PostAsync(uri, StringData);
+                string responseData = await responseMessage.Content.ReadAsStringAsync();
 
-                //string JsonData = JsonConvert.SerializeObject(cus);
-                //StringContent StringData = new StringContent(JsonData, Encoding.UTF8, "application/json");
-
-                //HttpResponseMessage responseMessage = await client.PostAsync(uri, StringData);
-                //string responseData = await responseMessage.Content.ReadAsStringAsync();
-
-                if (responseData != null)
+                if (responseData != "")
                 {
                     await DisplayAlert("Message", "Email Already Existed.", "OK");
                     await Navigation.PushAsync(new Login());
                 }
-                if (responseData == null)
+                if (responseData == "")
                 {
 
                     await DisplayAlert("Success", "Successfully Created!", "OK");
@@ -79,7 +81,7 @@ namespace E_Mart.Views.Customer
             }
             catch (Exception ex)
             {
-                ProgressInd.IsRunning = false;
+                //ProgressInd.IsRunning = false;
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
 
             }

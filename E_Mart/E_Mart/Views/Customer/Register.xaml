@@ -67,7 +67,7 @@
             
            
            
-            <ActivityIndicator x:Name="ProgressInd" IsRunning="False"/>
+            <!--<ActivityIndicator x:Name="ProgressInd" IsRunning="False"/>-->
             <Button x:Name="btnRegister" Text="Register"  Margin="0, 5,0,0"  Clicked="btnRegister_Clicked"/>
 
         </StackLayout>

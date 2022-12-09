@@ -1,4 +1,5 @@
 ﻿using E_Mart.Models;
+using E_Mart.Shop;
 using E_Mart.Utills;
 using Newtonsoft.Json;
 using System;
@@ -30,30 +31,44 @@ namespace E_Mart.Views.Customer
             }
             try
             {
-                ProgressInd.IsRunning = true;
 
-                var responseData = await api.CallApiGetAsync<CUSTOMER_tbl> ("api/CUSTOMER_tbl_API/loginchk ? Customer.CUSTOMER_EMAIL = " + txtEmail.Text + " & Customer.CUSTOMER_PASSWORD = " + txtPassword.Text);
-                if (responseData != null)
+                CUSTOMER_tbl customer = new CUSTOMER_tbl();
+                customer.CUSTOMER_EMAIL = txtEmail.Text;
+                customer.CUSTOMER_PASSWORD = txtPassword.Text;
+
+                var responseData = await api.CallApiPostAsync("api/CUSTOMER_tbl_API/loginchk", customer);
+
+                if (responseData.CUSTOMER_NAME != null)
                 {
                     App.LoggedInCustomer = responseData;
+                    if (App.Cart.Count > 0)
+                    {
+                        await Navigation.PushAsync(new CartControls());
+                    }
+                    else
+                    {
+                        App.Current.MainPage = new Customer.CustomerSideBar();
+                    }
+
+                    
                 }
-                // App.Current.MainPage = new CustomerSideBar(); 
-                await Navigation.PushAsync(new Home());
+                else
+                {
+                    await DisplayAlert("Oops", "Incorrect Email OR Passwoed. please Re-Enter !!", "OK");
+                }
+
             }
             catch (Exception ex)
             {
-                ProgressInd.IsRunning = false;
+                //ProgressInd.IsRunning = false;
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
             }
         }
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            App.Current.MainPage = new NavigationPage(new Register());
+            //App.Current.MainPage = new NavigationPage(new Register());
+            await Navigation.PushAsync(new Register());
         }
-        private async void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
-            //App.Current.MainPage = new StartUpPage();
-            await Navigation.PopAsync();
-        }
+
     }
 }

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_Mart.Seller.EditProduct" Title="Edit Product" BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Padding="24">
+
+
+            <StackLayout Padding="0" Margin="15,10,15,0">
+                <Label Text="Product Image"  HorizontalOptions="Center" FontAttributes="Bold"/>
+                <Frame BackgroundColor="White"  CornerRadius="20" Padding="0" Margin="5" HeightRequest="170" WidthRequest="80"  BorderColor="Black">
+                    <Image  x:Name="ItemImage" Aspect="Fill"  ></Image>
+                </Frame>
+                <Button Text="Update Image" Clicked="Button_Clicked_1" CornerRadius="20" Margin="60,0,60,0" TextColor="Black" BackgroundColor="White"  ></Button>
+
+            </StackLayout>
+
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,30,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="pencilicon.png" Aspect="AspectFill" Margin="4"/>
+                    </Frame>
+                    <Entry Keyboard="Chat" x:Name="txtItemName"  TextColor="Black" IsTextPredictionEnabled="True"  Placeholder="Name" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
+                    </Entry>
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="detailIcon.png" Aspect="AspectFill" Margin="6"/>
+                    </Frame>
+                    <Entry Keyboard="Chat" x:Name="txtItemDetail"  TextColor="Black" IsTextPredictionEnabled="True"  Placeholder="Product Detail" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
+                    </Entry>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="priceIcon.png" Aspect="AspectFill" Margin="7"/>
+                    </Frame>
+                    <Entry Keyboard="Chat" x:Name="txtItemPrice"  TextColor="Black"  Placeholder="Product Price" IsTextPredictionEnabled="True" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
+                    </Entry>
+                </StackLayout>
+            </Frame>
+
+
+            <ActivityIndicator x:Name="ProgressInd" IsRunning="False"/>
+            <Button Text="Save Changes" x:Name="btnAddProduct" Clicked="btneditProduct_Clicked" ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

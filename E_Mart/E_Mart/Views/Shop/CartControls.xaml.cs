@@ -24,7 +24,7 @@ namespace E_Mart.Shop
             }
             catch (Exception ex)
             {
-                DisplayAlert("Message", "Somthing went wrong this may be a problem with internet or application please ensure that you have a working internet connection and GPS enabled. \nError Details : " + ex.Message, "OK");
+                DisplayAlert("Message", "Something went wrong this may be a problem with internet or application please ensure that you have a working internet connection and GPS enabled. \nError Details : " + ex.Message, "OK");
             }
         }
 
@@ -104,7 +104,7 @@ namespace E_Mart.Shop
             }
             else
             {
-                //await Navigation.PushAsync(new ConfirmOrder());
+                await Navigation.PushAsync(new ConfirmOrder());
             }
 
 
@@ -117,27 +117,27 @@ namespace E_Mart.Shop
             await Navigation.PushAsync(new Shops());
         }
 
-        private async void Button_Clicked_1(object sender, EventArgs e)
-        {
+        //private async void Button_Clicked_1(object sender, EventArgs e)
+        //{
             
-            if (App.Cart.Count < 1)
-            {
-                await DisplayAlert("Message", "Cart Page is Empty Please add at least one item in cart", "OK");
-                return;
-            }
+        //    if (App.Cart.Count < 1)
+        //    {
+        //        await DisplayAlert("Message", "Cart Page is Empty Please add at least one item in cart", "OK");
+        //        return;
+        //    }
 
-            if (App.LoggedInCustomer == null)
-            {
-                var q = await DisplayAlert("Message", "You have to login for to place order.\n\nLog in Now?", "Yes", "No");
-                if (q)
-                {
-                    await Navigation.PushAsync(new Login());
-                }
-            }
-            else
-            {
-                //await Navigation.PushAsync(new Payment());
-            }
-        }
+        //    if (App.LoggedInCustomer == null)
+        //    {
+        //        var q = await DisplayAlert("Message", "You have to login for to place order.\n\nLog in Now?", "Yes", "No");
+        //        if (q)
+        //        {
+        //            await Navigation.PushAsync(new Login());
+        //        }
+        //    }
+        //    else
+        //    {
+        //        //await Navigation.PushAsync(new Payment());
+        //    }
+        //}
     }
 }

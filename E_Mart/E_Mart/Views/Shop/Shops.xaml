@@ -10,27 +10,21 @@
             <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
                 <Label TextColor="Black" FontSize="Medium" Padding="30,30,0,10" FontAttributes="Bold" Text="Discover"/>
             </StackLayout>
-            <CollectionView x:Name="ShopCategories" SelectionMode="Single"  SelectionChanged="collectionList_SelectionChanged" 
+            <CollectionView x:Name="ShopCategories"  SelectionChanged="collectionList_SelectionChanged" SelectionMode="Single" 
                 ItemsLayout="HorizontalList" HeightRequest="60">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         
                         <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="10" />
+                            
 
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-
-                                <ColumnDefinition Width="80*"/>
-
-                            </Grid.ColumnDefinitions>
-
-                            <Label Grid.Row="1"
-                       Grid.ColumnSpan="1"  
+                            <Label 
+                         
                        Text="{Binding SHP_CATEGORY_NAME}"
+                       HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
                        FontAttributes="Bold" TextColor="Black"
-                       FontSize="14" Padding="30,0,0,0"/>
+                       FontSize="14" Padding="8"/>
 
                         </Grid>
                     </DataTemplate>

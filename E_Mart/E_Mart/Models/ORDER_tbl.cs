@@ -5,12 +5,10 @@ namespace E_Mart.Models
 
     public partial class ORDER_tbl
     {
-     
+
         public int ORDER_ID { get; set; }
 
         public DateTime ORDER_DATE { get; set; }
-
-        public int SHOP_FID { get; set; }
 
         public int? CUSTOMER_FID { get; set; } 
   

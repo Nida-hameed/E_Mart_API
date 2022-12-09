@@ -11,14 +11,22 @@ namespace E_Mart
 {
     public partial class App : Application
     {
-         public static string APIBaseURL = "https://mall.damascuschefknives.com/";
-        //public static string APIBaseURL = "https://mall.bollywoodlounge.nu/";
+         //public static string APIBaseURL = "https://mall.damascuschefknives.com/";
+        public static string APIBaseURL = "https://mall.bollywoodlounge.nu/";
 
         public static CUSTOMER_tbl LoggedInCustomer = null;
-        public static List<ORDER_DETAIL_tbl> Cart = new List<ORDER_DETAIL_tbl>();
-        public static decimal? Total = 0;
        
+        public static SELLER_tbl LoggedInSeller = null;
+
+
+        public static List<ORDER_DETAIL_tbl> Cart = new List<ORDER_DETAIL_tbl>();
         
+        public static decimal? Total = 0;
+
+        public static SHOP_tbl SelectdShop = null;
+        
+       // public static PRODUCT_tbl Selectd = null;
+
         public App()
         {
             InitializeComponent();

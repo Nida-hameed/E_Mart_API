@@ -10,16 +10,26 @@ namespace E_Mart.Utills
     public class APICall
     {
         HttpClientHandler httpClientHandler = new HttpClientHandler();
-
+        private HttpClient _httpClient;
 
         private HttpClientHandler GetHttpClientHandler()
         {
             httpClientHandler.ServerCertificateCustomValidationCallback = (message, certificate, chain, sslPolicyErrors) => true;
             return httpClientHandler;
         }
+        private void CreateHttpClient()
+        {
+            _httpClient = new HttpClient(GetHttpClientHandler());
+        }
+
+
+
         public async Task<T> CallApiGetAsync<T>(string apiPath) where T : new()
         {
-            var _httpClient = new HttpClient(GetHttpClientHandler());
+            if (_httpClient == null)
+            {
+                CreateHttpClient();
+            }
             T data = new T();
             if (_httpClient.BaseAddress == null)
               _httpClient.BaseAddress = new Uri(App.APIBaseURL);
@@ -34,7 +44,10 @@ namespace E_Mart.Utills
         }
         public async Task<T> CallApiPostAsync<T>(string apiPath, T postData) where T : new()
         {
-            var _httpClient = new HttpClient(GetHttpClientHandler());
+            if (_httpClient == null)
+            {
+                CreateHttpClient();
+            }
 
             T data = new T();
 
@@ -55,7 +68,10 @@ namespace E_Mart.Utills
         public async Task<T> CallApiPutAsync<T>(string apiPath, int id, T postData) where T : new()
         {
             apiPath = apiPath + "/" + id;
-            var _httpClient = new HttpClient(GetHttpClientHandler());
+            if (_httpClient == null)
+            {
+                CreateHttpClient();
+            }
 
             T data = new T();
 
@@ -76,7 +92,10 @@ namespace E_Mart.Utills
         }
         public async Task<T> CallApiPostAsync<T, X>(string apiPath, X postData) where T : new() where X : new()
         {
-            var _httpClient = new HttpClient(GetHttpClientHandler());
+            if (_httpClient == null)
+            {
+                CreateHttpClient();
+            }
 
             T data = new T();
             if (_httpClient.BaseAddress == null)
@@ -95,7 +114,10 @@ namespace E_Mart.Utills
         }
         public async Task<bool> CallApiDeleteAsync(string apiPath)
         {
-            var _httpClient = new HttpClient(GetHttpClientHandler());
+            if (_httpClient == null)
+            {
+                CreateHttpClient();
+            }
 
             if (_httpClient.BaseAddress == null)
             {
@@ -109,5 +131,29 @@ namespace E_Mart.Utills
             }
             return false;
         }
+
+        public async Task<string> CallApiPostimageAsync(string apiPath, MultipartFormDataContent Content)
+        {
+            if (_httpClient == null)
+            {
+                CreateHttpClient();
+            }
+
+            if (_httpClient.BaseAddress == null)
+            {
+                _httpClient.BaseAddress = new Uri(App.APIBaseURL);
+            }
+            var response = await _httpClient.PostAsync(apiPath, Content);
+            if (response.IsSuccessStatusCode)
+            {
+                var result = response.Content.ReadAsStringAsync().Result;
+                return result;
+            }
+            return null;
+
+        }
+
+
+
     }
 }

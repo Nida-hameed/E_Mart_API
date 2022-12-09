@@ -2,9 +2,11 @@
 using E_Mart.Utills;
 using E_Mart.Views.Customer;
 using E_Mart.Views.Shop;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,18 +30,11 @@ namespace E_Mart
             try
             {
                 var responseData = await api.CallApiGetAsync<List<SHOP_tbl>>("api/SHOP_tbl_API/getshops");
-                CollBrand.ItemsSource = responseData; 
-               
-                
-                var responseData1 = await api.CallApiGetAsync<List<PRODUCT_tbl>>("api/PRODUCT_tbl_API/recentproducts");
-                CollNewestProducts.ItemsSource = responseData1; 
-                
-                
-                
-                //var responseData2 = await api.CallApiGetAsync<List<PRODUCT_tbl>>("api/shop/GetCategoryAndProductsByShopId/" );
-                //CollMostSelling.ItemsSource = responseData2;
-               
+                CollBrand.ItemsSource = responseData;
 
+
+                var responseData1 = await api.CallApiGetAsync<List<PRODUCT_tbl>>("api/PRODUCT_tbl_API/recentproducts");
+                CollNewestProducts.ItemsSource = responseData1;
 
             }
             catch (Exception ex)
@@ -48,8 +43,6 @@ namespace E_Mart
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
             }
         }
-
-
             private async void CollBrand_SelectionChanged(object sender, SelectionChangedEventArgs e)
             {
                 await UpdateSelectionDataAsync(e.CurrentSelection);

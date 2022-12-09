@@ -9,7 +9,7 @@
                 <Label/>
                 <Label HorizontalOptions="CenterAndExpand" TextColor="Black" Text="The Last Step! Your order is almost ready please confirm this order with cash on delivery mode?" />
                 <Label />
-                <Button x:Name="btnCurrentLocation" Clicked="btnCurrentLocation_Clicked" Text="Confirm Order" Padding="14" />
+                <Button x:Name="btnConfirm" Clicked="btnConfirm_Clicked" Text="Confirm Order" Padding="14" />
             </StackLayout>
 
         </ScrollView>

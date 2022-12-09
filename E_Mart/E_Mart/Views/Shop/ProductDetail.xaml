@@ -2,7 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:Pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" xmlns:xyt="http://xamarin.com/schemas/2020/toolkit"
-             x:Class="E_Mart.Views.Shop.ProductDetail">
+             x:Class="E_Mart.Views.Shop.ProductDetail" Title="Product Detail">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Text="Cart" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -213,13 +216,20 @@
                             </xyt:TabView>
                         </Grid>
                     </Frame>
-                    <Pancake:PancakeView CornerRadius="50" BackgroundColor="White" Margin="15,-45,20,15" HeightRequest="80" WidthRequest="80" Padding="5"
+                    <Pancake:PancakeView CornerRadius="50" x:Name="btnWishlist" BackgroundColor="White" Margin="15,-45,20,15" HeightRequest="80" WidthRequest="80" Padding="5"
                            HorizontalOptions="EndAndExpand"
                            VerticalOptions="Start">
+                        <Pancake:PancakeView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+                            </TapGestureRecognizer>
+                        </Pancake:PancakeView.GestureRecognizers>
                         <Pancake:PancakeView.Shadow>
                             <Pancake:DropShadow Color="Black" BlurRadius="15" Offset="0,0"/>
                         </Pancake:PancakeView.Shadow>
-                        <Image Source="heartic.png" Aspect="AspectFit" Margin="15"></Image>
+                      <!--Wishlist Icon-->
+                        <Image  Source="heartic.png" Aspect="AspectFit" Margin="15">
+                           
+                        </Image>
                     </Pancake:PancakeView>
 
                 </Grid>
@@ -230,7 +240,7 @@
             <StackLayout  HeightRequest="65" VerticalOptions="EndAndExpand">
                 <Pancake:PancakeView BackgroundColor="#ff6f61" HeightRequest="65" Padding="0" CornerRadius="20,20,0,0"
                                      VerticalOptions="EndAndExpand">
-                    <Button Text="Buy Now" FontSize="24" TextColor="White" FontAttributes="Bold" 
+                    <Button Text="Buy Now" FontSize="24" TextColor="White" FontAttributes="Bold" BorderColor="#ff6f61" 
                            HorizontalOptions="CenterAndExpand"
                            VerticalOptions="CenterAndExpand" Clicked="Button_Clicked"/>
                 </Pancake:PancakeView>

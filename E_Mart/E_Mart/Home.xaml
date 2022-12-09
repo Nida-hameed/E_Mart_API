@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="E_Mart.Home" BackgroundColor="White">
+             x:Class="E_Mart.Home" BackgroundColor="White"
+             Title="Home">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout  Padding="10"
@@ -73,7 +74,7 @@
                     <Label TextColor="Black" FontSize="Medium" Padding="10,5,10,2" FontAttributes="Bold" Text="New Arrivals"/>
                 </StackLayout>
                 <CollectionView x:Name="CollNewestProducts" SelectionMode="Single" SelectionChanged="CollNewestProducts_SelectionChanged"
-                ItemsLayout="HorizontalGrid, 1" HeightRequest="260">
+                ItemsLayout="HorizontalGrid, 1" HeightRequest="210">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="5">
@@ -90,7 +91,7 @@
                                 </VisualStateManager.VisualStateGroups>
 
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="90" />
+                                    <RowDefinition Height="60" />
                                     <RowDefinition Height="30" />
                                     <RowDefinition Height="10" />
                                     <RowDefinition Height="30" />
@@ -106,7 +107,7 @@
                                 Source="{Binding ImageURL1}"
                                 x:Name="artimage"
                                 Aspect="Fill"
-                                HeightRequest="70"
+                                HeightRequest="60"
                                 WidthRequest="150" />
                                 </Frame>
 

@@ -1,4 +1,5 @@
-﻿using E_Mart.Views.Shop;
+﻿using E_Mart.Seller;
+using E_Mart.Views.Shop;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -36,12 +37,13 @@ namespace E_Mart.Views.Customer
                 {
                     new CustomerSideBarFlyoutMenuItem { Id = 0, Title = "Home", TargetType= typeof(Home) },
                     new CustomerSideBarFlyoutMenuItem { Id = 1, Title = "Shops",TargetType= typeof(Shops)   },
-                    new CustomerSideBarFlyoutMenuItem { Id = 2, Title = "Cart",  },
-                    new CustomerSideBarFlyoutMenuItem { Id = 3, Title = "Checkout" },
-                    new CustomerSideBarFlyoutMenuItem { Id = 4, Title = "Contact Us" },
-                    new CustomerSideBarFlyoutMenuItem { Id = 4, Title = "Wishlist" },
-                    new CustomerSideBarFlyoutMenuItem { Id = 5, Title = "My Account" },
-                    new CustomerSideBarFlyoutMenuItem { Id = 6, Title = "Login & Register", TargetType= typeof(Login)},
+                    new CustomerSideBarFlyoutMenuItem { Id = 2, Title = "Contact Us" },
+                    new CustomerSideBarFlyoutMenuItem { Id = 3, Title = "Wishlist" },
+                    new CustomerSideBarFlyoutMenuItem { Id = 4, Title = "Login & Register", TargetType= typeof(Login)},
+                    new CustomerSideBarFlyoutMenuItem { Id = 5, Title = "B-Pair", TargetType= typeof(BPairItems)},
+                    new CustomerSideBarFlyoutMenuItem { Id = 6, Title = "Seller Account", TargetType= typeof(Seller.Login)},
+                    new CustomerSideBarFlyoutMenuItem { Id = 7, Title = "Manage", TargetType= typeof(Seller.Manage_Products)},
+                    new CustomerSideBarFlyoutMenuItem { Id = 8, Title = "Settings", TargetType= typeof(CustomerSettings.Settingspage) },
                 });
             }
 

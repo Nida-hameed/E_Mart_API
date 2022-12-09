@@ -72,8 +72,10 @@ namespace E_Mart.Views.Shop
         async Task UpdateSelectionDataAsync(IEnumerable<object> currentSelected)
         {
             var selected = currentSelected.FirstOrDefault() as SHP_CATEGORY_tbl;
-            App.Current.MainPage =  new NavigationPage(new ShopsByCategory(selected));
+            //App.SelectdShop = selected;
+            await Navigation.PushAsync(new ShopsByCategory(selected));
             
+
         } 
         private async void collectionList1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -82,7 +84,10 @@ namespace E_Mart.Views.Shop
         async Task UpdateSelectionDataAsync1(IEnumerable<object> currentSelected)
         {
             var selected = currentSelected.FirstOrDefault() as SHOP_tbl;
-            App.Current.MainPage =  new NavigationPage(new Products(selected));      
+            App.SelectdShop = selected;
+
+            //App.Current.MainPage =  new NavigationPage(new Products(selected));
+            await Navigation.PushAsync(new Products(selected));
         }
     }
 }

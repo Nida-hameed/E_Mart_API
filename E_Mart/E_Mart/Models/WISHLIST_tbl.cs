@@ -1,7 +1,11 @@
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace E_Mart.Models
 {
-
+    [Serializable]
     public partial class WISHLIST_tbl
     {
 

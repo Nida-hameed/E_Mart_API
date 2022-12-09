@@ -1,4 +1,4 @@
-﻿using E_Mart.Models;
+﻿ using E_Mart.Models;
 using E_Mart.Utills;
 using E_Mart.Utills.Response;
 using Newtonsoft.Json;
@@ -54,6 +54,8 @@ namespace E_Mart.Views.Shop
         {
             var selected = currentSelected.FirstOrDefault() as PRODUCT_tbl;
             await Navigation.PushAsync(new ProductDetail(selected));
+            
         }
     }
+   
 }

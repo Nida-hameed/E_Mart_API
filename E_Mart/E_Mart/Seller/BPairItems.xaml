@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="E_Mart.Seller.BPairItems">
+             x:Class="E_Mart.Seller.BPairItems" BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
 
-            <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
+            <!--<StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
                 <Label TextColor="Black" FontSize="Medium" Padding="30,30,0,10" FontAttributes="Bold" Text="Discover"/>
-            </StackLayout>
+            </StackLayout>-->
 
 
-            <Image Source="SHOPS.gif" Aspect="Fill"  Margin="10,0,10,10" HeightRequest="120" IsAnimationPlaying="True"  />
+            <Image Source="CategoriesBG.gif" Aspect="Fill"  Margin="10,25,10,10" HeightRequest="120" IsAnimationPlaying="True"  />
+
 
             <CollectionView x:Name="ListData" SelectionMode="Single"   ItemsLayout="VerticalGrid, 2">
 
@@ -46,7 +47,7 @@
                               Grid.ColumnSpan="2" Padding="3">
                                 <Image 
                                 Source="{Binding ImageURL}"
-                                x:Name="artimage"
+                                x:Name="itemimage"
                                 Aspect="Fill"
                                 HeightRequest="150"
                                 WidthRequest="150" />
@@ -55,9 +56,23 @@
 
                             <Label Grid.Row="4"
                        Grid.ColumnSpan="2" 
-                       Text="{Binding SHOP_NAME}"
-                       FontAttributes="Bold" TextColor="black"
-                       FontSize="14" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  />
+                       Text="{Binding ITEM_NAME}"
+                       FontAttributes="Bold" TextColor="Black"
+                       FontSize="14"/>
+                            <StackLayout Orientation="Horizontal" Grid.Row="5"
+                       Grid.ColumnSpan="2" >
+
+                                <Label 
+                       Text="Price |" TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="14"/>
+                                <Label  
+                       Text="{Binding ITEM_PRICE}"
+                       FontAttributes="Bold"
+                       FontSize="14"
+                       TextColor="Black"/>
+                            </StackLayout>
+
 
 
                         </Grid>
@@ -66,6 +81,7 @@
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
+            <Button Text="Sell" Clicked="Button_Clicked" ></Button>
 
         </StackLayout>
     </ContentPage.Content>

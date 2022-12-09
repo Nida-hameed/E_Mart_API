@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_Mart.Seller.Add_Product" BackgroundColor="White" Title="Add Product">
+    <ContentPage.Content>
+        <StackLayout Padding="24">
+            <Image Source="cameraicon.png" x:Name="PreviewPic" Margin="0,10,0,10"  HeightRequest="150" WidthRequest="150" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,30,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="pencilicon.png" Aspect="AspectFill" Margin="4"/>
+                    </Frame>
+                    <Entry Keyboard="Chat" x:Name="txtItemName"  TextColor="Black"  Placeholder="Name" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
+                    </Entry>
+                </StackLayout>
+            </Frame>  
+            
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="detailIcon.png" Aspect="AspectFill" Margin="6"/>
+                    </Frame>
+                    <Entry Keyboard="Chat" x:Name="txtItemDetail"  TextColor="Black"  Placeholder="Product Detail" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
+                    </Entry>
+                </StackLayout>
+            </Frame>   <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="priceIcon.png" Aspect="AspectFill" Margin="7"/>
+                    </Frame>
+                    <Entry Keyboard="Chat" x:Name="txtItemPrice"  TextColor="Black"  Placeholder="Product Price" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
+                    </Entry>
+                </StackLayout>
+            </Frame>
+ 
+
+            <ActivityIndicator x:Name="ProgressInd" IsRunning="False"/>
+            <Button Text="Add Product" x:Name="btnAddProduct" Clicked="btnAddProduct_Clicked" ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
