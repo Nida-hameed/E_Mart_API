@@ -1,5 +1,6 @@
 ﻿using E_Mart.Models;
 using E_Mart.Utills;
+using E_Mart.Utills.Response;
 using E_Mart.Views.Shop;
 using System;
 using System.Collections.Generic;
@@ -10,47 +11,30 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace E_Mart.Seller
+namespace E_Mart.Views.Customer
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class BPairItems : ContentPage
+    public partial class Wishlist : ContentPage
     {
         APICall api = new APICall();
-        public BPairItems()
+        public static int ID = App.LoggedInCustomer.CUSTOMER_ID;
+        public Wishlist()
         {
             InitializeComponent();
             LoadData();
+            //int ID = App.LoggedInCustomer.CUSTOMER_ID;
         }
         private async void LoadData()
         {
-
             try
             {
-                var responseData = await api.CallApiGetAsync<List<ITEM_tbl>>("api/ITEM_tbl_API/");
-                ListData.ItemsSource = responseData;
-
+                var responseData = await api.CallApiGetAsync<List<WISHLIST_tbl>>("api/WISHLIST_tbl_API/getlist/" + ID);
+                ListData.ItemsSource = responseData.Select(X => X.PRODUCT_tbl).ToList();
             }
             catch (Exception ex)
             {
 
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
-            }
-        }
-
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            if (App.LoggedInSeller == null)
-            {
-                var q = await DisplayAlert("Message", "You have to login to sell your product.\n\nLog in Now?", "Yes", "No");
-                if (q)
-                {
-                    await Navigation.PushAsync(new Login());
-                }
-            }
-            else
-            {
-                await Navigation.PushAsync(new Add_Product());
-
             }
         }
         private async void collectionList1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -59,7 +43,7 @@ namespace E_Mart.Seller
         }
         async Task UpdateSelectionDataAsync1(IEnumerable<object> currentSelected)
         {
-            var selected = currentSelected.FirstOrDefault() as ITEM_tbl;
+            var selected = currentSelected.FirstOrDefault() as PRODUCT_tbl;
             await Navigation.PushAsync(new ProductDetail(selected));
 
         }

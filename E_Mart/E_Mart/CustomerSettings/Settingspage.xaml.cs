@@ -36,7 +36,7 @@ namespace E_Mart.CustomerSettings
                    
 
 
-                    var result = await api.CallApiDeleteAsync("api/Reader/removereader/?id=" +App.LoggedInCustomer.CUSTOMER_ID);
+                    var result = await api.CallApiGetAsync<bool>("api/CUSTOMER_tbl_API/deletecustomer/" + App.LoggedInCustomer.CUSTOMER_ID);
 
                     if (result == true)
                     {

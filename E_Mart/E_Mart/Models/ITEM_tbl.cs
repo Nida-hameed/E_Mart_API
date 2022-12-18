@@ -12,8 +12,6 @@ namespace E_Mart.Models
         public decimal ITEM_PRICE { get; set; }
 
         public string ITEM_DETAIL{ get; set; }
-  
-        public string ITEM_IMAGE { get; set; }
 
         public string ImageURL { get; set; }
 

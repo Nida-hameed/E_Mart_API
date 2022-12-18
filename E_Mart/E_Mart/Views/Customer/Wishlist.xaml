@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="E_Mart.Views.Shop.ShopsByCategory" BackgroundColor="White" Title="{Binding Title}">
+             x:Class="E_Mart.Views.Customer.Wishlist" Title="Wishlist" BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
-            <Image  Source="CategoriesBG.gif" Aspect="Fill"  Margin="10,25,10,10" HeightRequest="120" IsAnimationPlaying="True"  />
 
-            <CollectionView x:Name="ListData" SelectionMode="Single"  SelectionChanged="collectionList_SelectionChanged" ItemsLayout="VerticalGrid, 2">
+            <CollectionView x:Name="ListData" SelectionMode="Single"  SelectionChanged="collectionList1_SelectionChanged" ItemsLayout="VerticalGrid, 2">
+
 
                 <CollectionView.ItemTemplate >
 
@@ -38,8 +38,8 @@
                             <Frame  Grid.RowSpan="4" 
                               Grid.ColumnSpan="2" Padding="3">
                                 <Image 
-                                Source="{Binding ImageURL}"
-                                x:Name="lblshopimage"
+                                Source="{Binding ImageURL1}"
+                                x:Name="proimage"
                                 Aspect="Fill"
                                 HeightRequest="150"
                                 WidthRequest="150" />
@@ -48,10 +48,9 @@
 
                             <Label Grid.Row="4"
                        Grid.ColumnSpan="2" 
-                       Text="{Binding SHOP_NAME}"
+                       Text="{Binding PRODUCT_SALEPRICE}"
                        FontAttributes="Bold" TextColor="black"
-                       FontSize="14" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" 
-                        x:Name="lblshopname"       />
+                       FontSize="14" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  />
 
 
                         </Grid>
@@ -60,6 +59,7 @@
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

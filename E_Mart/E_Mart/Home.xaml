@@ -114,16 +114,16 @@
 
                                 <Label Grid.Row="4"
                        Grid.ColumnSpan="2" 
-                       Text="{Binding PRODUCT_NAME}"
+                       Text="{Binding PRODUCT_SALEPRICE}"
                        FontAttributes="Bold" TextColor="Black"
                        FontSize="14"/>
 
-                                <Label Grid.Row="5"
+                                <!--<Label Grid.Row="5"
                         Grid.ColumnSpan="2"
                               Grid.Column="0" 
                         Text="{Binding PRODUCT_SALEPRICE}"
                        FontAttributes="Bold"
-                       FontSize="Micro"/>
+                       FontSize="Micro"/>-->
                             </Grid>
 
                         </DataTemplate>
@@ -182,16 +182,16 @@
 
                                 <Label Grid.Row="4"
                        Grid.ColumnSpan="2" 
-                       Text="{Binding PRODUCT_NAME}"
+                       Text="{Binding PRODUCT_SALEPRICE}"
                        FontAttributes="Bold" TextColor="Black"
                        FontSize="14"/>
 
-                                <Label Grid.Row="5"
+                                <!--<Label Grid.Row="5"
                         Grid.ColumnSpan="2"
                               Grid.Column="0" 
                         Text="{Binding PRODUCT_SALEPRICE}"
                        FontAttributes="Bold"
-                       FontSize="Micro"/>
+                       FontSize="Micro"/>-->
                             </Grid>
 
                         </DataTemplate>

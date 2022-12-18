@@ -12,7 +12,7 @@
                 <ListView.ItemsSource >
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Booked Orders</x:String>
-                        <x:String>Cancelled Orders</x:String>
+                        <!--<x:String>Cancelled Orders</x:String>-->
                         <x:String>Login to another Account</x:String>
                         <x:String>Manage Profile</x:String>
                         <x:String>Delete Account</x:String>

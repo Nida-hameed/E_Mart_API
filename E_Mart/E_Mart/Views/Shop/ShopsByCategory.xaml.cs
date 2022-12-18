@@ -22,10 +22,9 @@ namespace E_Mart.Views.Shop
         public ShopsByCategory(SHP_CATEGORY_tbl s)
         {
             InitializeComponent();
+            Title = s.SHP_CATEGORY_NAME;
             LoadData(s.SHP_CATEGORY_ID);
-          
-
-
+            
         }
 
 

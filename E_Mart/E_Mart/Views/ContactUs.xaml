@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_Mart.Views.ContactUs" BackgroundColor="White" Title="Contact" >
+    <ContentPage.Content>
+        <StackLayout Padding="24,100,24,0">
+            <Image Source="ic_zp_gen_red.png"/>
+          
+            <Label Text="emart.help1@gmail.com" TextColor="Black" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+                    </TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+        
+            <!--<Label Text="+92 321 7828083" TextColor="Black" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1">
+                    </TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>-->
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" Margin="0,40,0,0" HorizontalOptions="FillAndExpand"  CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="LockIcon.png" Aspect="AspectFill" Margin="2"/>
+                    </Frame>
+                    <Entry Keyboard="Chat" x:Name="txtName" TextColor="Black" Placeholder="Your Name" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" Margin="0,20,0,0"  HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="EmailIcon.png" Aspect="AspectFill" Margin="0"/>
+                    </Frame>
+                    <Entry Keyboard="Email" x:Name="txtEmail"  TextColor="Black"  Placeholder="Your Email" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
+                    </Entry>
+
+                </StackLayout>
+            </Frame>  
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" Margin="0,20,0,0"  HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="EmailIcon.png" Aspect="AspectFill" Margin="0"/>
+                    </Frame>
+                    <Entry Keyboard="Chat" x:Name="txtSubject"  TextColor="Black"  Placeholder="Subject" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
+                    </Entry>
+
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" HorizontalOptions="FillAndExpand" Margin="0,20,0,0" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="LockIcon.png" Aspect="AspectFill" Margin="2"/>
+                    </Frame>
+                    <Entry Keyboard="Chat" x:Name="txtMessage" TextColor="Black" Placeholder="Enter Message" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                </StackLayout>
+            </Frame>
+
+            <!--<ActivityIndicator x:Name="ProgressInd" IsRunning="False"/>-->
+            <Button x:Name="btnSend" Text="Send Message"  Margin="0, 5,0,0" Clicked="btnSend_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

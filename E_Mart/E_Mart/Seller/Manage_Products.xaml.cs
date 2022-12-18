@@ -46,15 +46,7 @@ namespace E_Mart.Seller
 
             if (Choice == "View")
             {
-
-                await DisplayAlert("Detail", "" +
-                    //"\nITEM_ID: " + Selected.ITEM_ID +
-                    "\nITEM_IMAGE: " + Selected.ImageURL +
-                    "\nITEM_NAME: " + Selected.ITEM_NAME +                   
-                    "\nITEM_DETAIL: " + Selected.ITEM_DETAIL +
-                    "\nITEM_PRICE: " + Selected.ITEM_PRICE +
-                    "\nSELLER: " + App.LoggedInSeller.SELLER_NAME, "", "OK");
-
+                await Navigation.PushAsync(new ViewProduct(Selected));
             }
             if (Choice == "Edit")
             {
@@ -69,11 +61,21 @@ namespace E_Mart.Seller
                 {
 
                     LoadData();
-                    ITEM_tbl Item = new ITEM_tbl();
-                    Item.ITEM_ID = Selected.ITEM_ID;
-                    Item.SELLER_FID = App.LoggedInSeller.SELLER_ID;
-                    var result = await api.CallApiDeleteAsync("api/ITEM_tbl_API/DeleteItem"+ Item);
-                    await DisplayAlert("Message", Selected.ITEM_NAME + "Deleted Permanently", "OK");
+                    //ITEM_tbl Item = new ITEM_tbl();
+                    //Item.ITEM_ID = Selected.ITEM_ID;
+                    //Item.SELLER_FID = App.LoggedInSeller.SELLER_ID;
+                    var result = await api.CallApiDeleteAsync("api/ITEM_tbl_API/DeleteItem/"+ Selected.ITEM_ID);
+                    if (result==true)
+                    {
+                        await DisplayAlert("Message", Selected.ITEM_NAME + "Deleted Permanently", "OK");
+                        LoadData();
+                    }
+                    else
+                    {
+                        await DisplayAlert("Message", Selected.ITEM_NAME + "Not deleted! Please try again later.", "OK");
+                        LoadData();
+                    }
+                    
 
                 }
             }

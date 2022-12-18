@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="E_Mart.Seller.BPairItems" BackgroundColor="White">
+             x:Class="E_Mart.Seller.BPairItems" BackgroundColor="White" Title="B-Pair">
     <ContentPage.Content>
         <StackLayout>
 
@@ -13,7 +13,7 @@
             <Image Source="CategoriesBG.gif" Aspect="Fill"  Margin="10,25,10,10" HeightRequest="120" IsAnimationPlaying="True"  />
 
 
-            <CollectionView x:Name="ListData" SelectionMode="Single"   ItemsLayout="VerticalGrid, 2">
+            <CollectionView x:Name="ListData" SelectionMode="Single" SelectionChanged="collectionList1_SelectionChanged"   ItemsLayout="VerticalGrid, 2">
 
 
                 <CollectionView.ItemTemplate >
@@ -54,13 +54,13 @@
                             </Frame>
 
 
-                            <Label Grid.Row="4"
+                            <!--<Label Grid.Row="4"
                        Grid.ColumnSpan="2" 
                        Text="{Binding ITEM_NAME}"
                        FontAttributes="Bold" TextColor="Black"
-                       FontSize="14"/>
-                            <StackLayout Orientation="Horizontal" Grid.Row="5"
-                       Grid.ColumnSpan="2" >
+                       FontSize="14"/>-->
+                            <StackLayout Orientation="Horizontal" Grid.Row="4"
+                       Grid.ColumnSpan="2"  >
 
                                 <Label 
                        Text="Price |" TextColor="Black"
@@ -72,9 +72,6 @@
                        FontSize="14"
                        TextColor="Black"/>
                             </StackLayout>
-
-
-
                         </Grid>
 
                     </DataTemplate>

@@ -21,6 +21,7 @@ namespace E_Mart.Views.Shop
         public Products(SHOP_tbl shp)
         {
             InitializeComponent();
+            Title = shp.SHOP_NAME;
             LoadData(shp.SHOP_ID); 
         }
         private async void LoadData(int sHOP_ID)

@@ -32,6 +32,5 @@ namespace E_Mart.Models
 
         public int PRO_CATEGORY_FID { get; set; }
 
-      
     }
 }

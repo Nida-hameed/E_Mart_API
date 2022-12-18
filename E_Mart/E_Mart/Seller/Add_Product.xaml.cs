@@ -100,7 +100,6 @@ namespace E_Mart.Seller
 
                 if (string.IsNullOrEmpty(txtItemName.Text) || string.IsNullOrEmpty(txtItemDetail.Text) || string.IsNullOrEmpty(txtItemPrice.Text))
                 {
-
                     await DisplayAlert("Error", "Please fillout all requried fields and Try Again!", "OK");
                     return;
                 }
@@ -109,19 +108,23 @@ namespace E_Mart.Seller
 
                 ITEM_tbl Item = new ITEM_tbl()
                 {
-
                     ITEM_NAME = txtItemName.Text,
                     ITEM_DETAIL = txtItemDetail.Text,
                     ITEM_PRICE = decimal.Parse(txtItemPrice.Text),
-                    ITEM_IMAGE = Image,
+                    ImageURL = Image,
                     SELLER_FID = App.LoggedInSeller.SELLER_ID,
-
                 };
-
                 var responseData = await api.CallApiPostAsync("api/ITEM_tbl_API/AddItem", Item);
-
-                await DisplayAlert("Success", "Product Added.", "OK");
-                await Navigation.PushAsync(new Manage_Products());
+                if(responseData != null)
+                {
+                    await DisplayAlert("Success", "Product Added.", "OK");
+                    await Navigation.PushAsync(new Manage_Products());
+                }
+                else
+                {
+                    await DisplayAlert("Message", "Product not added! Please Check your internet connection or try again later.", "OK");
+                }
+               
             }
             catch (Exception ex)
             {

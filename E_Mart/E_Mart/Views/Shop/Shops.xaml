@@ -8,13 +8,13 @@
       <StackLayout>
 
             <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
-                <Label TextColor="Black" FontSize="Medium" Padding="30,30,0,10" FontAttributes="Bold" Text="Discover"/>
+                <Label TextColor="Black" FontSize="Medium" Padding="15,30,0,10" FontAttributes="Bold" Text="Discover"/>
             </StackLayout>
-            <CollectionView x:Name="ShopCategories"  SelectionChanged="collectionList_SelectionChanged" SelectionMode="Single" 
+            <CollectionView Margin="20,0,0,0" x:Name="ShopCategories"  SelectionChanged="collectionList_SelectionChanged" SelectionMode="Single" 
                 ItemsLayout="HorizontalList" HeightRequest="60">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        
+
                         <Grid>
                             
 

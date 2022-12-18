@@ -56,12 +56,12 @@ namespace E_Mart.Seller
                 var responseData = await api.CallApiGetAsync<SELLER_tbl>("api/SELLER_tbl_API/postseller");
 
 
-                if (responseData != null)
+                if (responseData == null)
                 {
                     await DisplayAlert("Message", "Email Already Existed.", "OK");
                     await Navigation.PushAsync(new Login());
                 }
-                if (responseData == null)
+                if (responseData != null)
                 {
 
                     await DisplayAlert("Success", "Successfully Created!", "OK");

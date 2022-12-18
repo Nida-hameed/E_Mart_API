@@ -48,15 +48,12 @@ namespace E_Mart.Views.Customer
                     else
                     {
                         App.Current.MainPage = new Customer.CustomerSideBar();
-                    }
-
-                    
+                    }         
                 }
                 else
                 {
-                    await DisplayAlert("Oops", "Incorrect Email OR Passwoed. please Re-Enter !!", "OK");
+                    await DisplayAlert("Oops", "Incorrect Email OR Passwoed. Please Re-Enter !!", "OK");
                 }
-
             }
             catch (Exception ex)
             {

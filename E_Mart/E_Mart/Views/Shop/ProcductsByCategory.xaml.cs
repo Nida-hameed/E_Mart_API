@@ -21,6 +21,7 @@ namespace E_Mart.Views.Shop
         {
             InitializeComponent();
             LoadData(p.PRO_CATEGORY_ID);
+            Title = p.PRO_CATEGORY_NAME;
         }
 
         private async void LoadData(int pRO_CATEGORY_ID)

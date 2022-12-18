@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="E_Mart.Views.Shop.Products" Title="Products" BackgroundColor="White">
+             x:Class="E_Mart.Views.Shop.Products" Title="{Binding Title}" BackgroundColor="White">
 
     <ContentPage.Content>
        
@@ -79,11 +79,15 @@
                                 HeightRequest="150"
                                 WidthRequest="150" />
                             </Frame>
-
+                            <Label 
+                                
+                       Text="Price |" TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="14"/>
 
                             <Label Grid.Row="4"
                        Grid.ColumnSpan="2" 
-                       Text="{Binding PRODUCT_NAME}"
+                       Text="{Binding PRODUCT_SALEPRICE}"
                        FontAttributes="Bold" TextColor="black"
                        FontSize="14" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  />
 

@@ -34,7 +34,10 @@ namespace E_Mart
 
 
                 var responseData1 = await api.CallApiGetAsync<List<PRODUCT_tbl>>("api/PRODUCT_tbl_API/recentproducts");
-                CollNewestProducts.ItemsSource = responseData1;
+                CollNewestProducts.ItemsSource = responseData1; 
+                
+                var responseData2 = await api.CallApiGetAsync<List<PRODUCT_tbl>>("api/PRODUCT_tbl_API/featuredproducts");
+                CollMostSelling.ItemsSource = responseData2;
 
             }
             catch (Exception ex)

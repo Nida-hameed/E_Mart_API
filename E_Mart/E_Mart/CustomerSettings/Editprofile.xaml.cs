@@ -56,7 +56,7 @@ namespace E_Mart.CustomerSettings
 
                 };
 
-                var editedcustomer= await api.CallApiPutAsync("api/CUSTOMER_tbl_API/", customer.CUSTOMER_ID, customer);
+                var editedcustomer= await api.CallApiPostAsync("api/CUSTOMER_tbl_API/editCustomer", customer);
 
                 LoadData();
                 if (editedcustomer != null)

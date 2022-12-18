@@ -18,7 +18,7 @@ namespace E_Mart.Seller
     public partial class EditProduct : ContentPage
     {
         APICall api = new APICall();
-        //public static string PicPath = App.LoggedInReader.READER_IMAGE;
+        
         public static bool isnewpictureselected = false;
         private MediaFile _mediaFile;
         public string image;
@@ -36,24 +36,8 @@ namespace E_Mart.Seller
             txtItemPrice.Text = item.ITEM_PRICE.ToString();
 
         }
-
-        //protected override void OnAppearing()
-        //{
-        //    base.OnAppearing();
-        //    LoadData();
-        //}
-        //private void LoadData()
-        //{
-        //    ItemImage.Source = item.ITEM_DETAIL;
-        //    txtItemName.Text = item.ITEM_NAME;
-        //    txtItemDetail.Text = item.ITEM_DETAIL;
-        //    txtItemPrice.Text = item.ITEM_PRICE.ToString();
-
-        //}
-
         private async void btneditProduct_Clicked(object sender, EventArgs e)
         {
-
             try
             {
                 //UserDialogs.Instance.ShowLoading("Loading Please Wait...");
@@ -74,37 +58,28 @@ namespace E_Mart.Seller
                     ITEM_NAME = txtItemName.Text,
                     ITEM_DETAIL = txtItemDetail.Text,
                     ITEM_PRICE = decimal.Parse(txtItemPrice.Text),
-                    ITEM_IMAGE = image,
+                    ImageURL = image,
                 };
 
-                var modifiedlist = await api.CallApiPutAsync("api/ITEM_tbl_API/EditItem", ItemId, Item);
-                await Navigation.PushAsync(new Manage_Products());
-                //LoadData();
-                //if (modifiedlist == true)
-                //{
-                //   // UserDialogs.Instance.HideLoading();
-                //    await DisplayAlert("Success", "Successfully Update Profile", "OK");
-
-                //    App.LoggedInReader = reader;
-                //    LoadData();
-
-                //    App.Current.MainPage = new ReadrixFlyout();
-                //}
-                //else
-                //{
-                //    UserDialogs.Instance.HideLoading();
-                //    await DisplayAlert("Error", "Somthing went wrong!!", "OK");
-                //}
-
-
-
+                var modifiedlist = await api.CallApiPostAsync<ITEM_tbl>("api/PRODUCT/EditItem", Item);
+              
+                if (modifiedlist != null)
+                {
+                    // UserDialogs.Instance.HideLoading();
+                    await DisplayAlert("Success", "Successfully Update Profile", "OK");
+                    await Navigation.PushAsync(new Manage_Products());
+                }
+                else
+                {
+                    //UserDialogs.Instance.HideLoading();
+                    await DisplayAlert("Error", "Somthing went wrong! Please try again later.", "OK");
+                }
             }
             catch (Exception ex)
             {
                 //UserDialogs.Instance.HideLoading();
-                await DisplayAlert("message", "Error Occured please try again:" + ex.Message, "ok");
+                await DisplayAlert("message", "Error Occured please try again later:" + ex.Message, "ok");
             }
-
         }
 
         private async void Button_Clicked_1(object sender, EventArgs e)
@@ -163,7 +138,6 @@ namespace E_Mart.Seller
 
                     ItemImage.Source = SelectedImg.Path;
                     isnewpictureselected = true;
-
                 }
             }
             catch (Exception ex)
