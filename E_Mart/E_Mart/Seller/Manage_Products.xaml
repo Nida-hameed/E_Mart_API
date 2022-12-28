@@ -2,6 +2,10 @@
              xmlns:system="clr-namespace:System;assembly=netstandard"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="E_Mart.Seller.Manage_Products" Title="Products" BackgroundColor="White" >
+    
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Text="Add New" Clicked="ToolbarItem_Clicked" />
+        </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Padding="10">
             <Image Source="ManageProducts.png" Aspect="Fill"  Margin="10,25,10,10" HeightRequest="120" IsAnimationPlaying="True"  />

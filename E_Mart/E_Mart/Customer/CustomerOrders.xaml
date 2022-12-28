@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_Mart.Customer.CustomerOrders" Title=" Booked Orders" BackgroundColor="White" >
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout Spacing="10" Padding="10">
+                <Image Source="OrderIcon.gif" Aspect="Fill"  Margin="10,10,10,10" HeightRequest="120"  />
+                <Label x:Name="lblname" Margin="10,20,10,20" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="Medium" IsVisible="false" TextColor="Black"/>
+                <ListView x:Name="ListData" ItemTapped="ListData_ItemTapped"
+              SeparatorVisibility="None">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="5">
+                                    <Frame CornerRadius="10" HasShadow="True" Padding="7">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Source="OrderIcon"   HeightRequest="100"  WidthRequest="100"/>
+
+                                            <StackLayout Padding="3">
+                                                <Label Text="{Binding ORDER_DATE}" VerticalOptions="Center" TextColor="#ff6f61" FontSize="Medium" FontAttributes="Bold" />
+                                                <Label Text="{Binding ORDER_STATUS}" VerticalOptions="Center" TextColor="#ff6f61" FontSize="Small"  />
+                                                <Label Text="{Binding PAYMENT_MODE}" TextColor="Black" VerticalOptions="Center"  FontSize="Small"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

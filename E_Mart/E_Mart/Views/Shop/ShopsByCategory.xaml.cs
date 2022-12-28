@@ -1,4 +1,5 @@
-﻿using E_Mart.Models;
+﻿using Acr.UserDialogs;
+using E_Mart.Models;
 using E_Mart.Utills;
 using Newtonsoft.Json;
 using System;
@@ -32,6 +33,7 @@ namespace E_Mart.Views.Shop
         {
             try
             {
+                UserDialogs.Instance.ShowLoading("Loading Please Wait...");
                 var responseData = await api.CallApiGetAsync<List<SHOP_tbl>>("api/SHOP_tbl_API/category/" + sHP_CATEGORY_ID);
                 ListData.ItemsSource = responseData;
 
@@ -39,7 +41,7 @@ namespace E_Mart.Views.Shop
 
             catch (Exception ex)
             {
-
+                UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
             }
         }

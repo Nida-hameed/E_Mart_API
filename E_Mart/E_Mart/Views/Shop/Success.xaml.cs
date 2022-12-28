@@ -1,4 +1,4 @@
-﻿using E_Mart.Views.Customer;
+﻿using E_Mart.LoggedInCustomer;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,4 +1,5 @@
-﻿using E_Mart.Models;
+﻿using Acr.UserDialogs;
+using E_Mart.Models;
 using E_Mart.Utills;
 using E_Mart.Utills.Request;
 using System;
@@ -27,6 +28,7 @@ namespace E_Mart.Shop
 
             try
             {
+                UserDialogs.Instance.ShowLoading("Loading Please Wait...");
                 OrderRequest request = new OrderRequest()
                 {
                     order = new ORDER_tbl
@@ -45,15 +47,18 @@ namespace E_Mart.Shop
 
                 if (responseData != null)
                 {
+                    UserDialogs.Instance.HideLoading();
                     await Navigation.PushAsync(new Success());
                 }
                 else
                 {
+                    UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Message", "Something went wrong this may be a problem with internet or application please ensure that you have a working internet connection.", "OK");
                 }
             }
             catch (Exception ex)
             {
+                UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Message", "Something went wrong this may be a problem with internet or application please ensure that you have a working internet connection. \nError Details : " + ex.Message, "OK");
             }
         }

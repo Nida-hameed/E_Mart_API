@@ -79,17 +79,19 @@
                                 HeightRequest="150"
                                 WidthRequest="150" />
                             </Frame>
-                            <Label 
-                                
+                            <StackLayout Orientation="Horizontal" Grid.Row="4"
+                       Grid.ColumnSpan="2"  >
+
+                                <Label 
                        Text="Price |" TextColor="Black"
                        FontAttributes="Bold"
                        FontSize="14"/>
-
-                            <Label Grid.Row="4"
-                       Grid.ColumnSpan="2" 
+                                <Label  
                        Text="{Binding PRODUCT_SALEPRICE}"
-                       FontAttributes="Bold" TextColor="black"
-                       FontSize="14" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  />
+                       FontAttributes="Bold"
+                       FontSize="14"
+                       TextColor="Black"/>
+                            </StackLayout>
 
 
                         </Grid>

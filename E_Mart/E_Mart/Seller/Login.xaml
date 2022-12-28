@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="E_Mart.Seller.Login"
              Title="Login"  BackgroundColor="White">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Back" Clicked="ToolbarItem_Clicked" />
-    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout Padding="24,100,24,0">
             <Image Source="LoginIcon.png"/>

@@ -1,4 +1,5 @@
-﻿using E_Mart.Models;
+﻿using Acr.UserDialogs;
+using E_Mart.Models;
 using E_Mart.Utills;
 using Newtonsoft.Json;
 using Plugin.Media;
@@ -93,6 +94,7 @@ namespace E_Mart.Seller
         {
             try
             {
+                UserDialogs.Instance.ShowLoading("Loading Please Wait...");
                 var Content = new MultipartFormDataContent();
                 Content.Add(new StreamContent(_mediaFile.GetStream()), "\"file\"", $"\"{_mediaFile.Path}\"");
                 string ResponseMessage = await api.CallApiPostimageAsync("api/ITEM_tbl/postimage", Content);
@@ -103,9 +105,6 @@ namespace E_Mart.Seller
                     await DisplayAlert("Error", "Please fillout all requried fields and Try Again!", "OK");
                     return;
                 }
-
-                ProgressInd.IsRunning = true;
-
                 ITEM_tbl Item = new ITEM_tbl()
                 {
                     ITEM_NAME = txtItemName.Text,
@@ -117,18 +116,20 @@ namespace E_Mart.Seller
                 var responseData = await api.CallApiPostAsync("api/ITEM_tbl_API/AddItem", Item);
                 if(responseData != null)
                 {
+                    UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Success", "Product Added.", "OK");
                     await Navigation.PushAsync(new Manage_Products());
                 }
                 else
                 {
+                    UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Message", "Product not added! Please Check your internet connection or try again later.", "OK");
                 }
                
             }
             catch (Exception ex)
             {
-                ProgressInd.IsRunning = false;
+                UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Erroe: " + ex.Message, "OK");
 
             }

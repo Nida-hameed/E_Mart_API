@@ -1,4 +1,5 @@
-﻿using E_Mart.Models;
+﻿using Acr.UserDialogs;
+using E_Mart.Models;
 using E_Mart.Utills;
 using Newtonsoft.Json;
 using System;
@@ -30,26 +31,30 @@ namespace E_Mart.Seller
             }
             try
             {
+                UserDialogs.Instance.ShowLoading("Loading Please Wait...");
 
                 SELLER_tbl seller = new SELLER_tbl();
                 seller.SELLER_EMIAL = txtEmail.Text;
                 seller.SELLER_PASSWORD = txtPassword.Text;
-
+               
                 var responseData = await api.CallApiPostAsync("api/SELLER_tbl_API/loginchk", seller);
 
                 if (responseData.SELLER_NAME != null)
                 {
+                    UserDialogs.Instance.HideLoading();
                     App.LoggedInSeller = responseData;
-                    await Navigation.PushAsync(new Add_Product());
+                    //await Navigation.PushAsync(new Manage_Products());
+                    App.Current.MainPage = new LoggedInSeller.SellerSideBar();
                 }
                 else
                 {
+                    UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Oops", "Incorrect Email OR Passwoed. please Re-Enter !!", "OK");
                 }
             }
             catch (Exception ex)
             {
-                //ProgressInd.IsRunning = false;
+                UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
             }
         }
@@ -57,11 +62,6 @@ namespace E_Mart.Seller
         {
             App.Current.MainPage = new NavigationPage(new Register());
            
-        }
-        private async void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
-            //App.Current.MainPage = new StartUpPage();
-            await Navigation.PopAsync();
         }
     }
 }

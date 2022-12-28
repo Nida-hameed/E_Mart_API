@@ -1,4 +1,5 @@
-﻿using E_Mart.Models;
+﻿using Acr.UserDialogs;
+using E_Mart.Models;
 using E_Mart.Utills;
 using Newtonsoft.Json;
 using System;
@@ -39,7 +40,7 @@ namespace E_Mart.Seller
                 }
 
 
-                ProgressInd.IsRunning = true;
+                UserDialogs.Instance.ShowLoading("Loading Please Wait...");
 
                 SELLER_tbl seller = new SELLER_tbl()
                 {
@@ -58,12 +59,13 @@ namespace E_Mart.Seller
 
                 if (responseData == null)
                 {
+                    UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Message", "Email Already Existed.", "OK");
                     await Navigation.PushAsync(new Login());
                 }
                 if (responseData != null)
                 {
-
+                    UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Success", "Successfully Created!", "OK");
                     await Navigation.PushAsync(new Login());
                 }
@@ -71,7 +73,7 @@ namespace E_Mart.Seller
             }
             catch (Exception ex)
             {
-                ProgressInd.IsRunning = false;
+                UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
 
             }

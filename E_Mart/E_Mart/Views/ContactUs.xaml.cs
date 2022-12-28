@@ -1,7 +1,8 @@
-﻿using E_Mart.Models;
+﻿using Acr.UserDialogs;
+using E_Mart.CustomerLoginSystem;
+using E_Mart.Models;
 using E_Mart.Shop;
 using E_Mart.Utills;
-using E_Mart.Views.Customer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,24 +33,29 @@ namespace E_Mart.Views
             }
             try
             {
+                UserDialogs.Instance.ShowLoading("Loading Please Wait...");
+
                 MESSAGE_tbl msg = new MESSAGE_tbl();
                 msg.NAME = txtName.Text;
                 msg.EMAIL = txtEmail.Text;
                 msg.SUBJECT = txtSubject.Text;
                 msg.MESSAGE_BODY = txtMessage.Text;
+              
                 var responseData = await api.CallApiPostAsync("api/MESSAGE_API/postMessage", msg);
                 if (responseData != null) 
                 {
+                    UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Message", "Greetings \n Dear user your message has been sent.We will contact you soon.\n Regards: E-Mart", "OK");
                 }
                 else
                 {
+                    UserDialogs.Instance.HideLoading();
                     await Navigation.PushAsync(new Login());
                 }
             }
             catch (Exception ex)
             {
-                //ProgressInd.IsRunning = false;
+                UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
             }
         }

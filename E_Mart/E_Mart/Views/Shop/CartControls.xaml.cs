@@ -1,5 +1,4 @@
 ﻿using E_Mart.Models;
-using E_Mart.Views.Customer;
 using E_Mart.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,6 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using E_Mart.Views.Shop;
+using E_Mart.CustomerLoginSystem;
 
 namespace E_Mart.Shop
 {

@@ -1,6 +1,6 @@
 ﻿using E_Mart.Models;
 using E_Mart.Utills;
-using E_Mart.Views.Customer;
+using E_Mart.Views.User;
 using E_Mart.Views.Shop;
 using Newtonsoft.Json;
 using System;
@@ -9,9 +9,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Acr.UserDialogs;
 
 namespace E_Mart
 {
@@ -29,6 +29,7 @@ namespace E_Mart
 
             try
             {
+                UserDialogs.Instance.ShowLoading("Loading Please Wait...");
                 var responseData = await api.CallApiGetAsync<List<SHOP_tbl>>("api/SHOP_tbl_API/getshops");
                 CollBrand.ItemsSource = responseData;
 
@@ -38,11 +39,11 @@ namespace E_Mart
                 
                 var responseData2 = await api.CallApiGetAsync<List<PRODUCT_tbl>>("api/PRODUCT_tbl_API/featuredproducts");
                 CollMostSelling.ItemsSource = responseData2;
-
+                UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)
             {
-
+                UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
             }
         }
@@ -69,7 +70,7 @@ namespace E_Mart
             async Task UpdateSelectionDataAsync2(IEnumerable<object> currentSelected)
             {
                 var selected = currentSelected.FirstOrDefault() as PRODUCT_tbl;
-                await Navigation.PushAsync(new ProductDetail(selected));
+                await Navigation.PushAsync(new ProductDetail(selected,App.LoggedInCustomer.CUSTOMER_ID));
             }
 
         

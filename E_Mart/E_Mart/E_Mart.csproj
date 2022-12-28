@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.2.0.564" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.4.35" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
@@ -17,8 +19,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Seller\ProductDetail.xaml.cs">
+    <Compile Update="Customer\CustomerOrders.xaml.cs">
+      <DependentUpon>CustomerOrders.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="LoggedInSeller\SellerSideBarFlyout.xaml.cs">
+      <DependentUpon>SellerSideBarFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="LoggedInSeller\SellerSideBar.xaml.cs">
+      <DependentUpon>SellerSideBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="BPairItems\ProductDetail.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Views\User\UserSideBarFlyout.xaml.cs">
+      <DependentUpon>UserSideBarFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\User\UserSideBar.xaml.cs">
+      <DependentUpon>UserSideBar.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Shop\ShopsByCategory.xaml.cs">
       <DependentUpon>ShopsByCategory.xaml</DependentUpon>
@@ -26,22 +43,37 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="CustomerSettings\Editprofile.xaml">
+    <EmbeddedResource Update="Customer\Editprofile.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CustomerSettings\Orderhistory.xaml">
+    <EmbeddedResource Update="Customer\CustomerOrders.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CustomerSettings\Settingspage.xaml">
+    <EmbeddedResource Update="Customer\OrderHistory.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Customer\Settingspage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Home.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="LoggedInCustomerSideBar\CustomerSideBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LoggedInCustomerSideBar\CustomerSideBarFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LoggedInSeller\SellerSideBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LoggedInSeller\SellerSideBarFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Seller\Add_Product.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Seller\BPairItems.xaml">
+    <EmbeddedResource Update="BPairItems\BPairItems.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Seller\EditProduct.xaml">
@@ -62,7 +94,7 @@
     <EmbeddedResource Update="Views\ContactUs.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Customer\Wishlist.xaml">
+    <EmbeddedResource Update="Customer\Wishlist.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Shop\CartControls.xaml">

@@ -1,4 +1,5 @@
-﻿ using E_Mart.Models;
+﻿using Acr.UserDialogs;
+using E_Mart.Models;
 using E_Mart.Utills;
 using E_Mart.Utills.Response;
 using Newtonsoft.Json;
@@ -28,13 +29,15 @@ namespace E_Mart.Views.Shop
         {
             try
             {
+                UserDialogs.Instance.ShowLoading("Loading Please Wait...");
                 var responseData = await api.CallApiGetAsync<GetCategoryAndProductsByShopIdResponse>("api/shop/GetCategoryAndProductsByShopId/" + sHOP_ID);
                 ListData.ItemsSource = responseData.Products;
                 ProductCtegories.ItemsSource = responseData.Categories;
+                UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)
             {
-
+                UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
             }
         }
@@ -54,7 +57,7 @@ namespace E_Mart.Views.Shop
         async Task UpdateSelectionDataAsync1(IEnumerable<object> currentSelected)
         {
             var selected = currentSelected.FirstOrDefault() as PRODUCT_tbl;
-            await Navigation.PushAsync(new ProductDetail(selected));
+            await Navigation.PushAsync(new ProductDetail(selected,App.LoggedInCustomer.CUSTOMER_ID));
             
         }
     }

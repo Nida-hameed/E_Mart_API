@@ -1,10 +1,11 @@
 ﻿using E_Mart.Models;
 using E_Mart.Shop;
 using E_Mart.Utills;
-using E_Mart.Views.Customer;
+using E_Mart.CustomerLoginSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,11 +19,15 @@ namespace E_Mart.Views.Shop
     {
         APICall api = new APICall();
         public static int idpro;
+        public static int UID;
 
         PRODUCT_tbl Pro = new PRODUCT_tbl();
-        public ProductDetail(PRODUCT_tbl Product)
+        public ProductDetail(PRODUCT_tbl Product, int? UID)
         {
             InitializeComponent();
+
+
+
             idpro = Product.PRODUCT_ID;
 
             Pro = Product;
@@ -32,7 +37,47 @@ namespace E_Mart.Views.Shop
             Proimage.Source = Product.ImageURL1;
             ProSpecification.Text = Product.PRODUCT_SPECIFICATIONS;
 
+            btnWishlist.BackgroundColor = Color.FromHex("#ff6f61");
+
         }
+
+        protected override async void OnAppearing()
+        {
+
+            base.OnAppearing();
+            if (await CheckFromWishlist(Pro, UID))
+            {
+                btnWishlist.BackgroundColor = Color.FromHex("#ff6f61");
+
+            }
+            else
+            {
+                btnWishlist.BackgroundColor = Color.FromHex("ffffff");
+
+            }
+
+        }
+
+        async Task<bool> CheckFromWishlist(PRODUCT_tbl Product, int ID)
+        {
+            var responseData = await api.CallApiGetAsync<List<WISHLIST_tbl>>("api/WISHLIST_tbl_API/getlist/" + ID);
+
+            var check = responseData.FirstOrDefault(x => x.PRODUCT_FID == Product.PRODUCT_ID);
+
+
+            if (check == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+
+        }
+
+        
         private async void Button_Clicked(object sender, EventArgs e)
         {
             var item = Pro;

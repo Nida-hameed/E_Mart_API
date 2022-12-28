@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_Mart.Customer.Settingspage" Title="Settings" BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="10"  >
+         
+            <Image Source="SettingsIcon.gif" Aspect="Fill"  Margin="10,20,10,0" HeightRequest="150" BackgroundColor="White" IsAnimationPlaying="True"  />
+
+            <StackLayout Margin="20,0,20,0">
+            <ListView ItemTapped="ListView_ItemTapped"  >
+                <ListView.ItemsSource >
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Booked Orders</x:String>
+                        <!--<x:String>Cancelled Orders</x:String>-->
+                        <x:String>Login to another Account</x:String>
+                        <x:String>Manage Profile</x:String>
+                        <x:String>Delete Account</x:String>
+                        <x:String>Logout</x:String>
+                       
+                    </x:Array>
+                </ListView.ItemsSource>
+            </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using E_Mart.Models;
+﻿using Acr.UserDialogs;
+using E_Mart.Models;
 using E_Mart.Utills;
 using System;
 using System.Collections.Generic;
@@ -19,16 +20,26 @@ namespace E_Mart.Seller
         {
             InitializeComponent();
             LoadData();
-
         }
         private async void LoadData()
         {
-            int id = App.LoggedInSeller.SELLER_ID;
+            try
+            {
+                UserDialogs.Instance.ShowLoading("Loading Please Wait...");
 
-            var ProductsList = await api.CallApiGetAsync<List<ITEM_tbl>>("api/ITEM_tbl_API/getlist/" + id);
+                int id = App.LoggedInSeller.SELLER_ID;
 
-            ListData.ItemsSource = ProductsList;
+                var ProductsList = await api.CallApiGetAsync<List<ITEM_tbl>>("api/ITEM_tbl_API/getlist/" + id);
 
+                ListData.ItemsSource = ProductsList;
+                UserDialogs.Instance.HideLoading();
+            }
+            catch (Exception ex)
+            {
+                UserDialogs.Instance.HideLoading();
+                await DisplayAlert("message", "Error Occured please try again:" + ex.Message, "ok");
+
+            }
         }
 
 
@@ -61,24 +72,35 @@ namespace E_Mart.Seller
                 {
 
                     LoadData();
-                    //ITEM_tbl Item = new ITEM_tbl();
-                    //Item.ITEM_ID = Selected.ITEM_ID;
-                    //Item.SELLER_FID = App.LoggedInSeller.SELLER_ID;
-                    var result = await api.CallApiDeleteAsync("api/ITEM_tbl_API/DeleteItem/"+ Selected.ITEM_ID);
-                    if (result==true)
+                    try
                     {
-                        await DisplayAlert("Message", Selected.ITEM_NAME + "Deleted Permanently", "OK");
-                        LoadData();
+                        UserDialogs.Instance.ShowLoading("Loading Please Wait...");
+                        var result = await api.CallApiDeleteAsync("api/ITEM_tbl_API/DeleteItem/" + Selected.ITEM_ID);
+                        if (result == true)
+                        {
+                            await DisplayAlert("Message", Selected.ITEM_NAME + "Deleted Permanently", "OK");
+                            LoadData();
+                        }
+                        else
+                        {
+                            UserDialogs.Instance.HideLoading();
+                            await DisplayAlert("Message", Selected.ITEM_NAME + "Not deleted! Please try again later.", "OK");
+                            LoadData();
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        await DisplayAlert("Message", Selected.ITEM_NAME + "Not deleted! Please try again later.", "OK");
-                        LoadData();
-                    }
-                    
+                        UserDialogs.Instance.HideLoading();
+                        await DisplayAlert("message", "Error Occured please try again:" + ex.Message, "ok");
 
+                    }
                 }
             }
+        }
+
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Add_Product());
         }
     }
 }

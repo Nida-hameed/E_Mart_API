@@ -1,4 +1,6 @@
-﻿using E_Mart.Models;
+﻿using Acr.UserDialogs;
+using E_Mart.Models;
+using E_Mart.Utills;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,54 +17,34 @@ namespace E_Mart.Views.Shop
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Shops : ContentPage
     {
+        APICall api = new APICall();
         public Shops()
         {
             InitializeComponent();
             LoadData();
-            LoadData1();
-        }
-        private async void LoadData1()
-        {
-            try
-            {
-                var httpClientHandler = new HttpClientHandler();
-                httpClientHandler.ServerCertificateCustomValidationCallback =
-                (message, certificate, chain, sslPolicyErrors) => true;
-                var client = new HttpClient(httpClientHandler);
-                var uri = App.APIBaseURL + "api/AllPurpose";
-                var result = await client.GetStringAsync(uri);
-                List<SHP_CATEGORY_tbl> list = JsonConvert.DeserializeObject<List<SHP_CATEGORY_tbl>>(result);
-                ShopCategories.ItemsSource = list;
-
-            }
-
-            catch (Exception ex)
-            {
-
-                await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
-            }
         }
         private async void LoadData()
         {
             try
             {
-                var httpClientHandler = new HttpClientHandler();
-                httpClientHandler.ServerCertificateCustomValidationCallback =
-                (message, certificate, chain, sslPolicyErrors) => true;
-                var client = new HttpClient(httpClientHandler);
-                var uri = App.APIBaseURL + "api/SHOP_tbl_API/getshops";
-                var result = await client.GetStringAsync(uri);
-                List<SHOP_tbl> list = JsonConvert.DeserializeObject<List<SHOP_tbl>>(result);
+                UserDialogs.Instance.ShowLoading("Loading Please Wait...");
+
+                var list = await api.CallApiGetAsync<List<SHP_CATEGORY_tbl>>("api/AllPurpose");
+                ShopCategories.ItemsSource = list;
                 
-                ListData.ItemsSource = list;
+                var Shoplist = await api.CallApiGetAsync<List<SHOP_tbl>>("api/SHOP_tbl_API/getshops");
+                ListData.ItemsSource = Shoplist;
+                UserDialogs.Instance.HideLoading();
+
             }
 
             catch (Exception ex)
             {
-
+                UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
             }
         }
+
            
        
         private async void collectionList_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -1,7 +1,7 @@
 ﻿using E_Mart.Models;
 using E_Mart.Services;
 using E_Mart.Views;
-using E_Mart.Views.Customer;
+using Plugin.FirebasePushNotification;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -33,6 +33,21 @@ namespace E_Mart
 
             DependencyService.Register<MockDataStore>();
             MainPage = new StartUpPage();
+
+            CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
+            {
+                System.Diagnostics.Debug.WriteLine($"TOKEN : {p.Token}");
+            };
+            CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
+            {
+
+                System.Diagnostics.Debug.WriteLine("Received");
+                foreach (var data in p.Data)
+                {
+                    System.Diagnostics.Debug.WriteLine($"{data.Key} : {data.Value}");
+                }
+
+            };
         }
 
         protected override void OnStart()

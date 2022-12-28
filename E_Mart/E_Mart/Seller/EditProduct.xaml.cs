@@ -1,4 +1,5 @@
-﻿using E_Mart.Models;
+﻿using Acr.UserDialogs;
+using E_Mart.Models;
 using E_Mart.Utills;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
@@ -40,7 +41,7 @@ namespace E_Mart.Seller
         {
             try
             {
-                //UserDialogs.Instance.ShowLoading("Loading Please Wait...");
+                UserDialogs.Instance.ShowLoading("Loading Please Wait...");
 
                 if (isnewpictureselected == true)
                 {
@@ -65,19 +66,19 @@ namespace E_Mart.Seller
               
                 if (modifiedlist != null)
                 {
-                    // UserDialogs.Instance.HideLoading();
+                    UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Success", "Successfully Update Profile", "OK");
                     await Navigation.PushAsync(new Manage_Products());
                 }
                 else
                 {
-                    //UserDialogs.Instance.HideLoading();
+                    UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Error", "Somthing went wrong! Please try again later.", "OK");
                 }
             }
             catch (Exception ex)
             {
-                //UserDialogs.Instance.HideLoading();
+                UserDialogs.Instance.HideLoading();
                 await DisplayAlert("message", "Error Occured please try again later:" + ex.Message, "ok");
             }
         }
