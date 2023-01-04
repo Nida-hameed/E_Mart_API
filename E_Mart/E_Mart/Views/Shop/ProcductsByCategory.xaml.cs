@@ -32,7 +32,7 @@ namespace E_Mart.Views.Shop
                 UserDialogs.Instance.ShowLoading("Loading Please Wait...");
                 var responseData =await api.CallApiGetAsync<List<PRODUCT_tbl>>("api/PRODUCT_tbl_API/ProductByCategory/" + pRO_CATEGORY_ID);
                 ListData.ItemsSource = responseData;
-
+                UserDialogs.Instance.HideLoading();
             }
 
             catch (Exception ex)

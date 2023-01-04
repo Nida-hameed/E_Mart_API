@@ -67,7 +67,7 @@ namespace E_Mart.Seller
                 if (modifiedlist != null)
                 {
                     UserDialogs.Instance.HideLoading();
-                    await DisplayAlert("Success", "Successfully Update Profile", "OK");
+                    await DisplayAlert("Success", "Successfully Update Product!", "OK");
                     await Navigation.PushAsync(new Manage_Products());
                 }
                 else

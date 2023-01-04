@@ -1,7 +1,6 @@
 ﻿using E_Mart.Models;
 using E_Mart.Services;
 using E_Mart.Views;
-using Plugin.FirebasePushNotification;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -23,7 +22,7 @@ namespace E_Mart
         
         public static decimal? Total = 0;
 
-        public static SHOP_tbl SelectdShop = null;
+        //public static SHOP_tbl SelectdShop = null;
         
        // public static PRODUCT_tbl Selectd = null;
 
@@ -33,21 +32,6 @@ namespace E_Mart
 
             DependencyService.Register<MockDataStore>();
             MainPage = new StartUpPage();
-
-            CrossFirebasePushNotification.Current.OnTokenRefresh += (s, p) =>
-            {
-                System.Diagnostics.Debug.WriteLine($"TOKEN : {p.Token}");
-            };
-            CrossFirebasePushNotification.Current.OnNotificationReceived += (s, p) =>
-            {
-
-                System.Diagnostics.Debug.WriteLine("Received");
-                foreach (var data in p.Data)
-                {
-                    System.Diagnostics.Debug.WriteLine($"{data.Key} : {data.Value}");
-                }
-
-            };
         }
 
         protected override void OnStart()

@@ -4,7 +4,7 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 using Acr.UserDialogs;
-using Plugin.FirebasePushNotification;
+
 
 namespace E_Mart.Droid
 {
@@ -18,7 +18,6 @@ namespace E_Mart.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             UserDialogs.Init(this);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            FirebasePushNotificationManager.ProcessIntent(this, Intent);
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

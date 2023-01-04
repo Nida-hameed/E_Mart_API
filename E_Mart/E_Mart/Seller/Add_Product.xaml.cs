@@ -1,6 +1,7 @@
 ﻿using Acr.UserDialogs;
 using E_Mart.Models;
 using E_Mart.Utills;
+using Firebase.Storage;
 using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
@@ -90,11 +91,20 @@ namespace E_Mart.Seller
                 await DisplayAlert("Message", "Something Went wrong \n" + ex.Message, "OK");
             }
         }
+
         private async void btnAddProduct_Clicked(object sender, EventArgs e)
         {
             try
             {
                 UserDialogs.Instance.ShowLoading("Loading Please Wait...");
+
+                //var task = new FirebaseStorage("e-mart1.appspot.com", new FirebaseStorageOptions
+                //{ ThrowOnCancel = true })
+                //    .Child(PicPath);
+                ////.PutAsync(await PicPath.OpenReadAsync());
+                //var Image = task;
+
+
                 var Content = new MultipartFormDataContent();
                 Content.Add(new StreamContent(_mediaFile.GetStream()), "\"file\"", $"\"{_mediaFile.Path}\"");
                 string ResponseMessage = await api.CallApiPostimageAsync("api/ITEM_tbl/postimage", Content);

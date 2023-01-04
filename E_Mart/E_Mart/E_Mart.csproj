@@ -7,8 +7,8 @@
 
   <ItemGroup>
     <PackageReference Include="Acr.UserDialogs" Version="7.2.0.564" />
+    <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Plugin.FirebasePushNotification" Version="3.4.35" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />

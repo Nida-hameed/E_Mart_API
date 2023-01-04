@@ -63,5 +63,21 @@ namespace E_Mart.Seller
             App.Current.MainPage = new NavigationPage(new Register());
            
         }
+
+        private void btnShowPassword_Clicked(object sender, EventArgs e)
+        {
+            if (txtPassword.IsPassword == true)
+            {
+                txtPassword.IsPassword = false;
+                btnShowPassword.Source = "HidePassword.png";
+            }
+            else
+            {
+                txtPassword.IsPassword = true;
+                btnShowPassword.Source = "ShowPassword.png";
+            }
+        }
+
+
     }
 }
