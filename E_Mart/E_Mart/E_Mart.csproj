@@ -31,13 +31,13 @@
     <Compile Update="BPairItems\ProductDetail.xaml.cs">
       <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
-    <Compile Update="Views\User\UserSideBarFlyout.xaml.cs">
+    <Compile Update="User\UserSideBarFlyout.xaml.cs">
       <DependentUpon>UserSideBarFlyout.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\User\UserSideBar.xaml.cs">
+    <Compile Update="User\UserSideBar.xaml.cs">
       <DependentUpon>UserSideBar.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Shop\ShopsByCategory.xaml.cs">
+    <Compile Update="Shop\ShopsByCategory.xaml.cs">
       <DependentUpon>ShopsByCategory.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -55,7 +55,7 @@
     <EmbeddedResource Update="Customer\Settingspage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Home.xaml">
+    <EmbeddedResource Update="Views\Home.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="LoggedInCustomerSideBar\CustomerSideBar.xaml">
@@ -97,29 +97,32 @@
     <EmbeddedResource Update="Customer\Wishlist.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Shop\CartControls.xaml">
+    <EmbeddedResource Update="Shop\CartControls.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Shop\ConfirmOrder.xaml">
+    <EmbeddedResource Update="Shop\ConfirmOrder.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Shop\ProcductsByCategory.xaml">
+    <EmbeddedResource Update="Shop\ProcductsByCategory.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Shop\ProductDetail.xaml">
+    <EmbeddedResource Update="Shop\ProductDetail.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Shop\Products.xaml">
+    <EmbeddedResource Update="Shop\Products.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Shop\Shops.xaml">
+    <EmbeddedResource Update="Shop\Shops.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Shop\ShopsByCategory.xaml">
+    <EmbeddedResource Update="Shop\ShopsByCategory.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Shop\Success.xaml">
+    <EmbeddedResource Update="Shop\Success.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Message.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\StartUpPage.xaml">
       <Generator>MSBuild:Compile</Generator>

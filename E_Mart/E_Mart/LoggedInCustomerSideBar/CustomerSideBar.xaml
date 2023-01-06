@@ -2,16 +2,15 @@
 <FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="E_Mart.LoggedInCustomer.CustomerSideBar"
-             xmlns:pages="clr-namespace:E_Mart" 
-             xmlns:pages1="clr-namespace:E_Mart.LoggedInCustomer"
-            >
+             xmlns:pages1="clr-namespace:E_Mart.LoggedInCustomer" 
+            xmlns:home="clr-namespace:Views.E_Mart">
   <FlyoutPage.Flyout>
         <pages1:CustomerSideBarFlyout x:Name="FlyoutPage" />
   </FlyoutPage.Flyout>
   <FlyoutPage.Detail>
     <NavigationPage>
       <x:Arguments>
-        <pages:Home />
+        <home:Home />
       </x:Arguments>
     </NavigationPage>
   </FlyoutPage.Detail>

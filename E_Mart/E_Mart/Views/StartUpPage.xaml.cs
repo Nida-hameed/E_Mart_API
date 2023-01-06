@@ -1,5 +1,5 @@
 ﻿using E_Mart.Models;
-using E_Mart.Views.User;
+using E_Mart.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;

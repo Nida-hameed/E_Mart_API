@@ -1,66 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="E_Mart.Views.ContactUs" BackgroundColor="White" Title="Contact" >
+             xmlns:helpers="clr-namespace:E_Mart.Helpers"
+             x:Class="E_Mart.Views.ContactUs" BackgroundImageSource="BG.jpg" Title="Contact" >
     <ContentPage.Content>
+        
         <StackLayout Padding="24,100,24,0">
             <Image Source="ic_zp_gen_red.png"/>
-            <StackLayout>
-              
-                <Label Text="emart.help1@gmail.com"  TextColor="Black" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
-                        </TapGestureRecognizer>
-                    </Label.GestureRecognizers>
-                </Label>
+            <StackLayout Padding="0" Margin="0,10,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label HorizontalOptions="CenterAndExpand" Margin="0,0,10,0" TextColor="Black" FontSize="Large"  Text="{x:Static helpers:FontAwesome.Envelope }" FontFamily="{StaticResource FontAwesome}" />
+                <Label HorizontalTextAlignment="Center" x:Name="lblemail" TextColor="Black" Text="emart.help1@gmail.com" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="0" HorizontalOptions="CenterAndExpand">
+                <Label HorizontalOptions="CenterAndExpand" Margin="0,0,8,0" TextColor="Black" FontSize="Large"  Text="{x:Static helpers:FontAwesome.Phone }" FontFamily="{StaticResource FontAwesome}" />
+                <Label HorizontalTextAlignment="Center" Margin="0,0,40,0" x:Name="lblphn" TextColor="Black" Text="+92 321 7828083" />
+            </StackLayout>
+            <StackLayout Padding="0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label  HorizontalOptions="CenterAndExpand" Margin="0,0,15,0" TextColor="Black" FontSize="Large"  Text="{x:Static helpers:FontAwesome.Map_marker }" FontFamily="{StaticResource FontAwesome}" />
+                <Label HorizontalTextAlignment="Center" Margin="0,0,12,0" x:Name="lbladdress" TextColor="Black" Text=" Gujranwala, Pakistan" />
             </StackLayout>
 
-            <Label Text="+92 321 7828083" TextColor="Black" FontAttributes="Bold"  HorizontalOptions="CenterAndExpand">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer >
-                    </TapGestureRecognizer>
-                </Label.GestureRecognizers>
-            </Label>
-            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" Margin="0,40,0,0" HorizontalOptions="FillAndExpand"  CornerRadius="20">
-                <StackLayout Orientation="Horizontal">
-                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
-                        <Image Source="LockIcon.png" Aspect="AspectFill" Margin="2"/>
-                    </Frame>
-                    <Entry Keyboard="Chat" x:Name="txtName" TextColor="Black" Placeholder="Your Name" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
-                </StackLayout>
-            </Frame>
-            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" Margin="0,20,0,0"  HorizontalOptions="FillAndExpand" CornerRadius="20">
-                <StackLayout Orientation="Horizontal">
-                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
-                        <Image Source="EmailIcon.png" Aspect="AspectFill" Margin="0"/>
-                    </Frame>
-                    <Entry Keyboard="Email" x:Name="txtEmail"  TextColor="Black"  Placeholder="Your Email" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
-                    </Entry>
 
-                </StackLayout>
-            </Frame>
-            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" Margin="0,20,0,0"  HorizontalOptions="FillAndExpand" CornerRadius="20">
-                <StackLayout Orientation="Horizontal">
-                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
-                        <Image Source="SubjectIcon.png" Aspect="AspectFill" Margin="3"/>
-                    </Frame>
-                    <Entry Keyboard="Chat" x:Name="txtSubject"  TextColor="Black"  Placeholder="Subject" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
-                    </Entry>
+        
+          
 
-                </StackLayout>
-            </Frame>
+            <Label Margin="3,40,0,0"  TextColor="Black" FontAttributes="Bold" Text="Let's Connect:" FontSize="Large" />
+            <StackLayout Padding="24" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="40" >
+              
+                <Image>
+                    <Image.Source>
+                        <FontImageSource  FontFamily="{DynamicResource FontAwesome}" Glyph="{x:Static helpers:FontAwesome.Facebook_sign }" Size="30" Color="#ff6f61" />
+                    </Image.Source>
+                </Image>
+                <Image>
+                    <Image.Source>
+                        <FontImageSource  FontFamily="{DynamicResource FontAwesome}" Glyph="{x:Static helpers:FontAwesome.Instagram }" Size="30" Color="#ff6f61" />
+                    </Image.Source>
+                </Image>
+                <Image>
+                    <Image.Source>
+                        <FontImageSource  FontFamily="{DynamicResource FontAwesome}" Glyph="{x:Static helpers:FontAwesome.Linkedin_sign }" Size="30" Color="#ff6f61" />
+                    </Image.Source>
+                </Image>
+                <Image>
+                    <Image.Source>
+                        <FontImageSource  FontFamily="{DynamicResource FontAwesome}" Glyph="{x:Static helpers:FontAwesome.Envelope }" Size="30" Color="#ff6f61" />
+                    </Image.Source>
+                </Image>
+                
+            </StackLayout>
 
-            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" HorizontalOptions="FillAndExpand" Margin="0,20,0,0" CornerRadius="20">
-                <StackLayout Orientation="Horizontal">
-                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
-                        <Image Source="MsgIcon.png" Aspect="AspectFill" Margin="2"/>
-                    </Frame>
-                    <Entry Keyboard="Chat" x:Name="txtMessage" TextColor="Black" Placeholder="Enter Message" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
-                </StackLayout>
-            </Frame>
 
-            <!--<ActivityIndicator x:Name="ProgressInd" IsRunning="False"/>-->
-            <Button x:Name="btnSend" Text="Send Message"  Margin="0, 5,0,0" Clicked="btnSend_Clicked"/>
+            <Button x:Name="btnmessage" Clicked="btnmessage_Clicked" Text="Leave A Message"  Margin="0,20,0,0"/>
 
         </StackLayout>
     </ContentPage.Content>

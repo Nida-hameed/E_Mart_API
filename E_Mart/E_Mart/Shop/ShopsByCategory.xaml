@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_Mart.Views.Shop.ShopsByCategory" BackgroundColor="White" Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image  Source="CategoriesBG.gif" Aspect="Fill"  Margin="10,25,10,10" HeightRequest="120" IsAnimationPlaying="True"  />
+
+            <CollectionView x:Name="ListData" SelectionMode="Single"  SelectionChanged="collectionList_SelectionChanged" ItemsLayout="VerticalGrid, 2">
+
+                <CollectionView.ItemTemplate >
+
+
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Normal" />
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="70*"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Frame  Grid.RowSpan="4" 
+                              Grid.ColumnSpan="2" Padding="3">
+                                <Image 
+                                Source="{Binding ImageURL}"
+                                x:Name="lblshopimage"
+                                Aspect="Fill"
+                                HeightRequest="150"
+                                WidthRequest="150" />
+                            </Frame>
+
+
+                            <Label Grid.Row="4"
+                       Grid.ColumnSpan="2" 
+                       Text="{Binding SHOP_NAME}"
+                       FontAttributes="Bold" TextColor="black"
+                       FontSize="14" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" 
+                        x:Name="lblshopname"       />
+
+
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

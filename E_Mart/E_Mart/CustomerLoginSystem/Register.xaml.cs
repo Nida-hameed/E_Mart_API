@@ -104,13 +104,13 @@ namespace E_Mart.CustomerLoginSystem
             if (Regex.IsMatch(e.NewTextValue, EmailPattern))
             {
 
-                txtEmail.Text = "Valid Email";
-                txtEmail.TextColor = Color.Green;
+                lblEmail.Text = "Valid Email";
+                lblEmail.TextColor = Color.Green;
             }
             else
             {
-                txtEmail.Text = "InValid Email! Email must contain @ and .com";
-                txtEmail.TextColor = Color.Red;
+                lblEmail.Text = "InValid Email! Email must contain @ and .com";
+                lblEmail.TextColor = Color.Red;
             }
         }
 
@@ -119,22 +119,22 @@ namespace E_Mart.CustomerLoginSystem
 
             if (e.NewTextValue.Length < 8)
             {
-                txtPassword.IsVisible = true;
-                txtPassword.Text = "Password should be of at least 8 charaters";
-                txtPassword.TextColor = Color.Red;
+                lblPassword.IsVisible = true;
+                lblPassword.Text = "Password should be of at least 8 charaters";
+                lblPassword.TextColor = Color.Red;
             }
 
             var PasswordPattern = @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])";
             if (Regex.IsMatch(e.NewTextValue, PasswordPattern))
             {
-                txtPassword.Text = "Strong Password!";
-                txtPassword.TextColor = Color.Green;
+                lblPassword.Text = "Strong Password!";
+                lblPassword.TextColor = Color.Green;
             }
 
             else
             {
-                txtPassword.Text = "Weak Password! Password should contain Uppercase Letter , Lowercase Letter, Number(s) and special characters [$@$!%*#?&]";
-                txtPassword.TextColor = Color.Red;
+                lblPassword.Text = "Weak Password! Password should contain Uppercase Letter , Lowercase Letter, Number(s) and special characters [$@$!%*#?&]";
+                lblPassword.TextColor = Color.Red;
             }
         }
 
@@ -143,15 +143,15 @@ namespace E_Mart.CustomerLoginSystem
 
             if (e.NewTextValue.Length < 11 || e.NewTextValue.Length > 13)
             {
-                txtContact.IsVisible = true;
-                txtContact.Text = "InValid Phone! Missing digit(s)";
-                txtContact.TextColor = Color.Red;
+                lblPhone.IsVisible = true;
+                lblPhone.Text = "InValid Phone! Missing digit(s)";
+                lblPhone.TextColor = Color.Red;
             }
 
             else
             {
-                txtContact.Text = "Valid Phone";
-                txtContact.TextColor = Color.Green;
+                lblPhone.Text = "Valid Phone";
+                lblPhone.TextColor = Color.Green;
             }
         }
 
@@ -159,14 +159,14 @@ namespace E_Mart.CustomerLoginSystem
         {
             if (e.NewTextValue.Length < 15)
             {
-                txtAddress.IsVisible = true;
-                txtAddress.Text = "Provide Complete Address for Product delivery purpuse!";
-                txtAddress.TextColor = Color.Red;
+                lblAddress.IsVisible = true;
+                lblAddress.Text = "Provide Complete Address for Product delivery purpuse!";
+                lblAddress.TextColor = Color.Red;
             }
             else
             {
-                txtAddress.Text = "Valid Address";
-                txtAddress.TextColor = Color.Green;
+                lblAddress.Text = "Valid Address";
+                lblAddress.TextColor = Color.Green;
             }
         }
 

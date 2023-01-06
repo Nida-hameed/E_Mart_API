@@ -15,40 +15,44 @@
                     <Entry IsTextPredictionEnabled="True" Keyboard="Chat" Placeholder="Name" x:Name="txtName" TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
                 </StackLayout>
             </Frame>
-            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,10,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+            <Label x:Name="lblEmail" FontSize="Micro"/>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
                 <StackLayout Orientation="Horizontal">
                     <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
                         <Image Source="EmailIcon.png" Aspect="AspectFill" Margin="0"/>
                     </Frame>
-                    <Entry Keyboard="Email" Placeholder="Email" x:Name="txtEmail"  TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                    <Entry Keyboard="Email" Placeholder="Email" x:Name="txtEmail" TextChanged="txtEmail_TextChanged" IsTextPredictionEnabled="True" TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
 
                 </StackLayout>
             </Frame>
-            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,10,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+            <Label x:Name="lblAddress" FontSize="Micro"/>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
                 <StackLayout Orientation="Horizontal">
                     <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
                         <Image Source="LocationIcon.png" Aspect="AspectFill" Margin="3"/>
                     </Frame>
-                    <Entry Placeholder="Address" x:Name="txtAddress"  TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                    <Entry Placeholder="Address" x:Name="txtAddress" TextChanged="txtAddress_TextChanged" IsTextPredictionEnabled="True" TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
 
                 </StackLayout>
             </Frame>
-            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,10,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+            <Label x:Name="lblPhone" FontSize="Micro"/>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
                 <StackLayout Orientation="Horizontal">
                     <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
                         <Image Source="PhoneIcon.png" Aspect="AspectFill" Margin="5"/>
                     </Frame>
-                    <Entry Keyboard="Numeric" Placeholder="Phone No" x:Name="txtContact"  TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                    <Entry Keyboard="Numeric" Placeholder="Phone No" x:Name="txtContact" TextChanged="txtContact_TextChanged" IsTextPredictionEnabled="True"  TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
 
                 </StackLayout>
             </Frame>
-            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,10,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+            <Label x:Name="lblPassword" FontSize="Micro"/>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
                 <StackLayout Orientation="Horizontal">
                     <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
                         <Image Source="LockIcon.png" Aspect="AspectFill" Margin="2"/>
                     </Frame>
 
-                    <Entry IsPassword="True" Placeholder="Password" x:Name="txtPassword"  TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                    <Entry IsPassword="True" Placeholder="Password" x:Name="txtPassword" TextChanged="txtPassword_TextChanged" IsTextPredictionEnabled="True" TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
 
                 </StackLayout>
             </Frame>

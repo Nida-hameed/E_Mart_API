@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="E_Mart.Views.Message" BackgroundImageSource="BG.jpg" Title="Message">
+    <ContentPage.Content>
+        <StackLayout Padding="24,30,24,0">
+            <Image Source="MsgIcon.png"/>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" Margin="0,0,0,0" HorizontalOptions="FillAndExpand"  CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="LockIcon.png" Aspect="AspectFill" Margin="2"/>
+                    </Frame>
+                    <Entry Keyboard="Chat" x:Name="txtName" TextColor="Black" Placeholder="Your Name" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" Margin="0,20,0,0"  HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="EmailIcon.png" Aspect="AspectFill" Margin="0"/>
+                    </Frame>
+                    <Entry Keyboard="Email" x:Name="txtEmail"  TextColor="Black"  Placeholder="Your Email" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
+                    </Entry>
+
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" Margin="0,20,0,0"  HorizontalOptions="FillAndExpand" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="SubjectIcon.png" Aspect="AspectFill" Margin="3"/>
+                    </Frame>
+                    <Entry Keyboard="Chat" x:Name="txtSubject"  TextColor="Black"  Placeholder="Subject" HorizontalOptions="FillAndExpand" Margin="0,0,20,0">
+                    </Entry>
+
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Padding="0" HorizontalOptions="FillAndExpand" Margin="0,20,0,0" CornerRadius="20">
+                <StackLayout Orientation="Horizontal">
+                    <Frame BackgroundColor="#ff6f61" HeightRequest="40" WidthRequest="40" CornerRadius="20" Padding="0" Margin="5">
+                        <Image Source="MsgIcon.png" Aspect="AspectFill" Margin="2"/>
+                    </Frame>
+                    <Entry Keyboard="Chat" x:Name="txtMessage" TextColor="Black" Placeholder="Enter Message" HorizontalOptions="FillAndExpand" Margin="0,0,20,0"></Entry>
+                </StackLayout>
+            </Frame>
+            <Button x:Name="btnSend" Text="Send Message"  Margin="0,20,0,0" Clicked="btnSend_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
