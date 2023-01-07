@@ -134,7 +134,12 @@
                     <Label Text="Call us for any queries!" TextColor="Black" FontSize="20" FontAttributes="Bold"  Padding="10,20,0,0" ></Label>
                     <Frame BackgroundColor="#ff6f61">
                        
-                        <Button Text="+92 317 7855508" TextColor="Black" Margin="90,0,0,0"></Button>
+                        <Button Text="+92 317 7855508" TextColor="Black" Margin="90,0,0,0">
+                            <Button.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://wa.me/+92317785508" />
+                            </Button.GestureRecognizers>
+                        </Button>
                     </Frame>
                     
                 </StackLayout>

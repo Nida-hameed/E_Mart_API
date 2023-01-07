@@ -13,6 +13,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Acr.UserDialogs;
 using E_Mart;
+using System.Windows.Input;
+using Xamarin.Essentials;
 
 namespace Views.E_Mart
 {
@@ -20,17 +22,25 @@ namespace Views.E_Mart
     public partial class Home : ContentPage
     {
         APICall api = new APICall();
+        public ICommand TapCommand => new Command<string>(OpenWhatsaap);
         public Home()
         {
             InitializeComponent();
             LoadData();
+            BindingContext = this;
+        }
+
+        void OpenWhatsaap(string url)
+        {
+            Launcher.OpenAsync(url);
+            //Device.OpenUri(new Uri(url));
         }
         private async void LoadData()
         {
 
             try
             {
-                //UserDialogs.Instance.ShowLoading("Loading Please Wait...");
+                UserDialogs.Instance.ShowLoading("Loading Please Wait...");
                 var responseData = await api.CallApiGetAsync<List<SHOP_tbl>>("api/SHOP_tbl_API/getshops");
                 CollBrand.ItemsSource = responseData;
 
@@ -40,11 +50,11 @@ namespace Views.E_Mart
                 
                 var responseData2 = await api.CallApiGetAsync<List<PRODUCT_tbl>>("api/PRODUCT_tbl_API/featuredproducts");
                 CollMostSelling.ItemsSource = responseData2;
-                //UserDialogs.Instance.HideLoading();
+                UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)
             {
-                //UserDialogs.Instance.HideLoading();
+                UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
             }
         }

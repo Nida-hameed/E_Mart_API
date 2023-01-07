@@ -10,14 +10,26 @@
             <StackLayout Padding="0" Margin="0,10,0,0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Label HorizontalOptions="CenterAndExpand" Margin="0,0,10,0" TextColor="Black" FontSize="Large"  Text="{x:Static helpers:FontAwesome.Envelope }" FontFamily="{StaticResource FontAwesome}" />
                 <Label HorizontalTextAlignment="Center" x:Name="lblemail" TextColor="Black" Text="emart.help1@gmail.com" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="mailto:emart.help1@gmail.com" />
+                </StackLayout.GestureRecognizers>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Padding="0" HorizontalOptions="CenterAndExpand">
                 <Label HorizontalOptions="CenterAndExpand" Margin="0,0,8,0" TextColor="Black" FontSize="Large"  Text="{x:Static helpers:FontAwesome.Phone }" FontFamily="{StaticResource FontAwesome}" />
                 <Label HorizontalTextAlignment="Center" Margin="0,0,40,0" x:Name="lblphn" TextColor="Black" Text="+92 321 7828083" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://wa.me/+923217828083" />
+                </StackLayout.GestureRecognizers>
             </StackLayout>
             <StackLayout Padding="0" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Label  HorizontalOptions="CenterAndExpand" Margin="0,0,15,0" TextColor="Black" FontSize="Large"  Text="{x:Static helpers:FontAwesome.Map_marker }" FontFamily="{StaticResource FontAwesome}" />
                 <Label HorizontalTextAlignment="Center" Margin="0,0,12,0" x:Name="lbladdress" TextColor="Black" Text=" Gujranwala, Pakistan" />
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://maps.app.goo.gl/zvG2oy1UAmAqPJuu9" />
+                </StackLayout.GestureRecognizers>
             </StackLayout>
 
 
@@ -25,27 +37,61 @@
           
 
             <Label Margin="3,40,0,0"  TextColor="Black" FontAttributes="Bold" Text="Let's Connect:" FontSize="Large" />
-            <StackLayout Padding="24" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="40" >
+            <StackLayout Padding="10,24,24,10" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="25" >
               
                 <Image>
                     <Image.Source>
                         <FontImageSource  FontFamily="{DynamicResource FontAwesome}" Glyph="{x:Static helpers:FontAwesome.Facebook_sign }" Size="30" Color="#ff6f61" />
                     </Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://www.facebook.com/nidahameed.nida.1" />
+                    </Image.GestureRecognizers>
                 </Image>
                 <Image>
                     <Image.Source>
                         <FontImageSource  FontFamily="{DynamicResource FontAwesome}" Glyph="{x:Static helpers:FontAwesome.Instagram }" Size="30" Color="#ff6f61" />
                     </Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://www.instagram.com/nida__hameed/" />
+                    </Image.GestureRecognizers>
                 </Image>
                 <Image>
                     <Image.Source>
                         <FontImageSource  FontFamily="{DynamicResource FontAwesome}" Glyph="{x:Static helpers:FontAwesome.Linkedin_sign }" Size="30" Color="#ff6f61" />
                     </Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://www.linkedin.com/in/nida-hameed-/" />
+                    </Image.GestureRecognizers>
                 </Image>
                 <Image>
                     <Image.Source>
                         <FontImageSource  FontFamily="{DynamicResource FontAwesome}" Glyph="{x:Static helpers:FontAwesome.Envelope }" Size="30" Color="#ff6f61" />
                     </Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="mailto:emart.help1@gmail.com" />
+                    </Image.GestureRecognizers>
+                </Image>  
+                <Image>
+                    <Image.Source>
+                        <FontImageSource  FontFamily="{DynamicResource FontAwesome}" Glyph="{x:Static helpers:FontAwesome.Twitter_sign }" Size="30" Color="#ff6f61" />
+                    </Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://twitter.com/NidaHam25971667" />
+                    </Image.GestureRecognizers>
+                </Image> 
+                <Image>
+                    <Image.Source>
+                        <FontImageSource  FontFamily="{DynamicResource FontAwesome}" Glyph="{x:Static helpers:FontAwesome.Warning_sign}" Size="30" Color="#ff6f61" />
+                    </Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}"
+                                          CommandParameter="https://wa.me/+92317785508" />
+                    </Image.GestureRecognizers>
                 </Image>
                 
             </StackLayout>
