@@ -19,10 +19,10 @@ namespace E_Mart.Seller
     public partial class EditProduct : ContentPage
     {
         APICall api = new APICall();
-        
+        public static string PicPath = App.SelectedItem.ImageURL;
         public static bool isnewpictureselected = false;
         private MediaFile _mediaFile;
-        public string image;
+        public string image = App.SelectedItem.ImageURL;
         public static int ItemId;
 
         public EditProduct(ITEM_tbl item)

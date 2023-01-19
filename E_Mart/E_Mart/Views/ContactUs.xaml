@@ -90,7 +90,7 @@
                     </Image.Source>
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding TapCommand}"
-                                          CommandParameter="https://wa.me/+92317785508" />
+                                          CommandParameter="https://wa.me/+923217828083" />
                     </Image.GestureRecognizers>
                 </Image>
                 

@@ -24,7 +24,11 @@ namespace E_Mart
 
         //public static SHOP_tbl SelectdShop = null;
         
-       // public static PRODUCT_tbl Selectd = null;
+        public static ITEM_tbl SelectedItem = null;
+       
+        public static CUSTOMER_tbl passwardreset = null;
+        
+        public static int code = 0;
 
         public App()
         {

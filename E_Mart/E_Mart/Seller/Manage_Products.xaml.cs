@@ -61,6 +61,7 @@ namespace E_Mart.Seller
             }
             if (Choice == "Edit")
             {
+                App.SelectedItem= Selected; 
                 await Navigation.PushAsync(new EditProduct(Selected));
 
             }

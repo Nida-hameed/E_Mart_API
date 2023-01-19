@@ -1,6 +1,7 @@
 ﻿using Acr.UserDialogs;
 using E_Mart.Models;
 using E_Mart.Utills;
+using E_Mart.Utills.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,17 @@ namespace E_Mart.Customer
             try
             {
                 UserDialogs.Instance.ShowLoading("Loading Please Wait...");
-                var responseData = await api.CallApiGetAsync<List<ORDER_DETAIL_tbl>>("api/Customer/Orderhistory/" + Orderid);
-                OrdersList.ItemsSource = responseData;
+                var responseData = await api.CallApiGetAsync<CustomerOrderHistory>("api/Customer/Orderhistory/" + Orderid);
+                 OrdersList.ItemsSource = responseData.OrderDetail;
+                 OrdersList.ItemsSource = responseData.ProductDetail;
+               
+                //foreach (var item in responseData)
+                //{
+                //    OrdersList.ItemsSource = item.OrderDetail;
+                //    OrdersList.ItemsSource = item.ProductDetail;
+                //}
+
+
                 UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)

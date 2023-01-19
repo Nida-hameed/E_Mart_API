@@ -23,7 +23,7 @@ namespace E_Mart.Utils
                 smtp.Host = "smtp.gmail.com"; //for gmail host  
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
-                smtp.Credentials = new NetworkCredential("emart.help1@gmail.com", "lafumuxwoyhnihhj");
+                smtp.Credentials = new NetworkCredential("emart.help1@gmail.com", "vprkpconzvfutksg");
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
 

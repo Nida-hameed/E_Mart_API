@@ -70,7 +70,7 @@ namespace E_Mart.CustomerLoginSystem
         }
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Register());
+            await Navigation.PushAsync(new ForgotPassword());
         }
 
         private void btnShowPassword_Clicked(object sender, EventArgs e)

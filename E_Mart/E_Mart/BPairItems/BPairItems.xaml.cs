@@ -30,7 +30,7 @@ namespace E_Mart.BPairItems
                 UserDialogs.Instance.ShowLoading("Loading Please Wait...");
                 var responseData = await api.CallApiGetAsync<List<ITEM_tbl>>("api/ITEM_tbl_API/");
                 ListData.ItemsSource = responseData;
-
+                UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)
             {

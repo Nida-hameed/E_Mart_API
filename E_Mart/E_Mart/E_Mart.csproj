@@ -43,6 +43,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="CustomerLoginSystem\ForgotPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CustomerLoginSystem\PasswordReset.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="CustomerLoginSystem\VerifyCode.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Customer\Editprofile.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
