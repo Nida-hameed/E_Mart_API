@@ -29,22 +29,13 @@ namespace E_Mart.Customer
             try
             {
                 UserDialogs.Instance.ShowLoading("Loading Please Wait...");
-                var responseData = await api.CallApiGetAsync<CustomerOrderHistory>("api/Customer/Orderhistory/" + Orderid);
-                 OrdersList.ItemsSource = responseData.OrderDetail;
-                 OrdersList.ItemsSource = responseData.ProductDetail;
-               
-                //foreach (var item in responseData)
-                //{
-                //    OrdersList.ItemsSource = item.OrderDetail;
-                //    OrdersList.ItemsSource = item.ProductDetail;
-                //}
-
-
+                var responseData = await api.CallApiGetAsync<List<ORDER_DETAIL_tbl>>("api/Customer/Orderhistory/" + Orderid);
+                OrdersList.ItemsSource = responseData;
                 UserDialogs.Instance.HideLoading();
             }
             catch (Exception ex)
             {
-                UserDialogs.Instance.HideLoading();
+              
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
             }
         }

@@ -25,25 +25,29 @@ namespace E_Mart.CustomerLoginSystem
             {
                 UserDialogs.Instance.ShowLoading("Loading Please Wait...");
                 // Required Field Validator =======================================================================
+               
                 if (string.IsNullOrEmpty(txtcode.Text))
                 {
                     await DisplayAlert("Message", "Please Enter Code", "OK");
                     UserDialogs.Instance.HideLoading();
                     return;
                 }
-
                 if (App.code.ToString() == txtcode.Text)
                 {
                     await DisplayAlert("Message", "Code Verified!!Please Set your new Password", "OK");
                     UserDialogs.Instance.HideLoading();
                     await Navigation.PushAsync(new PasswordReset());
                 }
+                if(App.code.ToString() != txtcode.Text)
+                {
+                    await DisplayAlert("Message", "Code Not Verified!!Please enter a valid code.", "OK");
+                    UserDialogs.Instance.HideLoading();
+                }
             }
             catch
             {
 
             }
-
-          }
+        }
     }
 }

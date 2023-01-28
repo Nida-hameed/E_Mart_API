@@ -1,19 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="E_Mart.Customer.Editprofile"  Title="Manage Profile">
+             x:Class="E_Mart.Customer.Editprofile"  Title="Manage Profile" BackgroundColor="White">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout HeightRequest="1030" Padding="10" Spacing="10">
+            <StackLayout  Padding="0,40,0,0" >
+                <Image Source="EditProfile.gif" Aspect="Fill"  Margin="10,0,10,10" HeightRequest="120" IsAnimationPlaying="True"  />
+
                 <Grid >
-                    <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand" >
-                        <Frame HeightRequest="90" BackgroundColor="#ff6f61" Padding="0" Margin="0" CornerRadius="10">
-                            <Image Source="editprofile.png" Aspect="AspectFill" Margin="0" />
-                        </Frame>
-                    </StackLayout>
-
-
-                    <StackLayout Padding="0" Margin="15,130,15,30" >
+                   
+                    <StackLayout Padding="0" Margin="15,15,15,30" >
                         <StackLayout Padding="0" Margin="15,0,15,0"  >
 
                             <Label Text="Username" TextColor="Black"  HorizontalOptions="Center" FontAttributes="Bold"/>
@@ -27,7 +23,7 @@
                             <Label Text="Email" TextColor="Black"   HorizontalOptions="Center" Margin="0,10,0,0" FontAttributes="Bold"/>
                             <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,0,0,10" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
                                 <StackLayout Orientation="Horizontal" >
-                                    
+
                                     <Entry Placeholder="Email" IsTextPredictionEnabled="True" 
                                        Keyboard="Email" IsReadOnly="True" TextColor="#ff6f61" FontAttributes="None"
                                            HorizontalOptions="FillAndExpand" Margin="10,0,20,0"  x:Name="txtEmail"/>
@@ -50,7 +46,7 @@
                             </Frame>
 
                             <Label Text="Contact" TextColor="Black"  HorizontalOptions="Center" FontAttributes="Bold"/>
-                            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,0,0,10" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
+                            <Frame BackgroundColor="Transparent" BorderColor="#ff6f61" Margin="0,0,0,0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="20">
                                 <StackLayout Orientation="Horizontal">
 
                                     <Entry Placeholder="Contact" IsTextPredictionEnabled="True" Keyboard="Numeric" TextColor="#ff6f61" FontAttributes="None" HorizontalOptions="FillAndExpand" Margin="10,0,20,0"  x:Name="txtContact"/>
@@ -58,11 +54,8 @@
                             </Frame>
                             <Label/>
                             <Button Text="Save Changes" BackgroundColor="#ff6f61" TextColor="White" CornerRadius="30"  Clicked="Button_Clicked" />
-                          
-
 
                         </StackLayout>
-
                     </StackLayout>
                 </Grid>
             </StackLayout>

@@ -63,18 +63,9 @@ namespace E_Mart.Seller
                 };
 
                 var modifiedlist = await api.CallApiPostAsync<ITEM_tbl>("api/PRODUCT/EditItem", Item);
-              
-                if (modifiedlist != null)
-                {
-                    UserDialogs.Instance.HideLoading();
-                    await DisplayAlert("Success", "Successfully Update Product!", "OK");
-                    await Navigation.PushAsync(new Manage_Products());
-                }
-                else
-                {
-                    UserDialogs.Instance.HideLoading();
-                    await DisplayAlert("Error", "Somthing went wrong! Please try again later.", "OK");
-                }
+                UserDialogs.Instance.HideLoading();
+                await DisplayAlert("Success", "Successfully Update Product!", "OK");
+                await Navigation.PushAsync(new Manage_Products());
             }
             catch (Exception ex)
             {

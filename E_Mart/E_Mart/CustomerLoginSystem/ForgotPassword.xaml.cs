@@ -39,14 +39,14 @@ namespace E_Mart.CustomerLoginSystem
 
               
                
-                var check = await api.CallApiGetAsync<CUSTOMER_tbl>("api/CUSTOMER_tbl/forgotpassword?email=" + txtEmailReset.Text);
+                var check = await api.CallApiGetAsync<CUSTOMER_tbl>("api/CUSTOMER_tbl_API/forgotpassword?email=" + txtEmailReset.Text);
                 if (check == null)
                 {
                     await DisplayAlert("Message", "The email you have entered is not registered.", "OK");
                     return;
                 }
 
-                MailProvider.SendEmail(check.CUSTOMER_EMAIL, "Password Forgot Request", "Dear " + check.CUSTOMER_NAME + "!!Your Account Credentials are :<br/>" + check.CUSTOMER_EMAIL + "<br/>"+ check.CUSTOMER_PASSWORD + " <br/> Regards Readrix Team");
+                MailProvider.SendEmail(check.CUSTOMER_EMAIL, "Password Forgot Request", "Dear " + check.CUSTOMER_NAME + "!< br />Your Account Credentials are :<br/>" + check.CUSTOMER_EMAIL + "<br/>"+ check.CUSTOMER_PASSWORD + " <br/> Regards: E-Mart");
                 UserDialogs.Instance.HideLoading();
                 await DisplayAlert("Message", "Your Login Details are sent to your email address please find that in your inbox", "OK");
                 await Navigation.PopAsync();
@@ -68,8 +68,8 @@ namespace E_Mart.CustomerLoginSystem
                 UserDialogs.Instance.HideLoading();
                 return;
             }
-            var check = await api.CallApiGetAsync<CUSTOMER_tbl>("api/CUSTOMER_tbl/forgotpassword?email=" + txtEmailReset.Text);
-            if (check == null)
+            var check = await api.CallApiGetAsync<CUSTOMER_tbl>("api/CUSTOMER_tbl_API/forgotpassword?email=" + txtEmailReset.Text);
+            if (check.CUSTOMER_ID==0)
             {
                 await DisplayAlert("Message", "The email you have entered is not registered.", "OK");
                 UserDialogs.Instance.HideLoading();
@@ -80,7 +80,7 @@ namespace E_Mart.CustomerLoginSystem
             int code = random.Next(1001, 9999);
             App.code = code;
             App.passwardreset = check;
-            MailProvider.SendEmail(check.CUSTOMER_EMAIL, "Passward Reset Code", "Dear " + check.CUSTOMER_NAME + "!!Please verify this code " + code +".<br/> Regards: E-Mart");
+            MailProvider.SendEmail(check.CUSTOMER_EMAIL, "Passward Reset Code", "Dear " + check.CUSTOMER_NAME + "!< br />Please verify this code " + code +".<br/> Regards: E-Mart");
             UserDialogs.Instance.HideLoading();
             await Navigation.PushAsync(new VerifyCode());
         }

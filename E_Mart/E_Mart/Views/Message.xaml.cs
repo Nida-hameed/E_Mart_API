@@ -40,16 +40,9 @@ namespace E_Mart.Views
                 msg.MESSAGE_BODY = txtMessage.Text;
 
                 var responseData = await api.CallApiPostAsync("api/MESSAGE_API/postMessage", msg);
-                if (responseData != null)
-                {
-                    UserDialogs.Instance.HideLoading();
-                    await DisplayAlert("Message", "Greetings \n Dear user your message has been sent.We will contact you soon.\n Regards: E-Mart", "OK");
-                }
-                else
-                {
-                    UserDialogs.Instance.HideLoading();
-                    await Navigation.PopAsync();
-                }
+                UserDialogs.Instance.HideLoading();
+                await DisplayAlert("Message", "Greetings \n Dear user your message has been sent.We will contact you soon.\n Regards: E-Mart", "OK");
+                await Navigation.PopAsync();
             }
             catch (Exception ex)
             {
@@ -58,5 +51,5 @@ namespace E_Mart.Views
             }
         }
     }
-  
+
 }

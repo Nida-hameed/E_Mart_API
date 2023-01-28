@@ -43,6 +43,7 @@ namespace E_Mart.LoggedInSeller
                     new SellerSideBarFlyoutMenuItem { Id = 4, Title = "B-Pair", TargetType= typeof(BPairItems.BPairItems)},
                     new SellerSideBarFlyoutMenuItem { Id = 5, Title = "Seller Account", TargetType= typeof(Seller.Login)},
                     new SellerSideBarFlyoutMenuItem { Id = 6, Title = "Manage Products", TargetType= typeof(Seller.Manage_Products)},
+                    new SellerSideBarFlyoutMenuItem { Id = 6, Title = "Settings", TargetType= typeof(Seller.Settingspage)},
                 });
             }
 

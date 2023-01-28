@@ -18,7 +18,7 @@
                                         <StackLayout Orientation="Horizontal">
                                             <Image Source="OrderIcon"   HeightRequest="100"  WidthRequest="100"/>
 
-                                            <StackLayout Padding="3">
+                                            <StackLayout Padding="0">
                                                 <Label Text="{Binding ORDER_DATE}" VerticalOptions="Center" TextColor="#ff6f61" FontSize="Medium" FontAttributes="Bold" />
                                                 <Label Text="{Binding ORDER_STATUS}" VerticalOptions="Center" TextColor="#ff6f61" FontSize="Small"  />
                                                 <Label Text="{Binding PAYMENT_MODE}" TextColor="Black" VerticalOptions="Center"  FontSize="Small"/>

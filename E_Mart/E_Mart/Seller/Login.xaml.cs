@@ -77,7 +77,10 @@ namespace E_Mart.Seller
                 btnShowPassword.Source = "ShowPassword.png";
             }
         }
-
+        private async void ForgetPassword_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Seller.ForgotPassword());
+        }       
 
     }
 }

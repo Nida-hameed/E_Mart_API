@@ -7,7 +7,9 @@ namespace E_Mart.Utills.Response
 {
     public class CustomerOrderHistory
     {
-        public List<ORDER_DETAIL_tbl> OrderDetail{ get; set; }
-        public List<PRODUCT_tbl> ProductDetail{ get; set; }
+        public int PRO_ORDER_QUANTITY { get; set; }
+        public decimal PURCHASE_PRICE { get; set; }
+        public string PRODUCT_NAME { get; set; }
+        public string ImageURL1 { get; set; }
     }
 }

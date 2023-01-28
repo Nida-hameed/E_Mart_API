@@ -72,7 +72,7 @@ namespace E_Mart.Customer
                 if (q)
                 {
                     App.LoggedInCustomer = null;
-                    App.Current.MainPage = new NavigationPage(new Login());
+                    App.Current.MainPage = new NavigationPage(new CustomerLoginSystem.Login());
                 }
             }
             if (select == "Manage Profile")

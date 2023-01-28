@@ -27,6 +27,8 @@ namespace E_Mart
         public static ITEM_tbl SelectedItem = null;
        
         public static CUSTOMER_tbl passwardreset = null;
+
+        public static SELLER_tbl passwordreset = null;
         
         public static int code = 0;
 
