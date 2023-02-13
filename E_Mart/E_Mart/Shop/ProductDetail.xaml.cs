@@ -20,16 +20,15 @@ namespace E_Mart.Views.Shop
         APICall api = new APICall();
         public static int idpro;
         public static int UID;
-
+      
         PRODUCT_tbl Pro = new PRODUCT_tbl();
         public ProductDetail(PRODUCT_tbl Product, int? UID)
         {
+
             InitializeComponent();
 
-
-
             idpro = Product.PRODUCT_ID;
-
+           
             Pro = Product;
             ProName.Text = Product.PRODUCT_NAME;
             ProDescription.Text = Product.PRODUCT_DESCRIPTION;
@@ -37,32 +36,34 @@ namespace E_Mart.Views.Shop
             Proimage.Source = Product.ImageURL1;
             ProSpecification.Text = Product.PRODUCT_SPECIFICATIONS;
 
-            btnWishlist.BackgroundColor = Color.FromHex("#ff6f61");
-
+            btnWishlist.BackgroundColor = Color.FromHex("#ffffff");      
         }
-
         protected override async void OnAppearing()
         {
-
             base.OnAppearing();
+            if (App.LoggedInCustomer != null)
+            {
+                UID = App.LoggedInCustomer.CUSTOMER_ID;
+            }
+            else
+            {
+                UID = 0;
+            }
+
             if (await CheckFromWishlist(Pro, UID))
             {
                 btnWishlist.BackgroundColor = Color.FromHex("#ff6f61");
-
             }
             else
             {
                 btnWishlist.BackgroundColor = Color.FromHex("ffffff");
-
             }
-
         }
-
-        async Task<bool> CheckFromWishlist(PRODUCT_tbl Product, int ID)
+        async Task<bool> CheckFromWishlist(PRODUCT_tbl Product, int? UID)
         {
-            var responseData = await api.CallApiGetAsync<List<WISHLIST_tbl>>("api/WISHLIST_tbl_API/getlist/" + ID);
+            var responseData = await api.CallApiGetAsync<List<WISHLIST_tbl>>("api/WISHLIST_tbl_API/getlist/" + UID);
 
-            var check = responseData.FirstOrDefault(x => x.PRODUCT_FID == Product.PRODUCT_ID);
+            var check = responseData.FirstOrDefault(x => x.PRODUCT_FID == Product.PRODUCT_ID && x.CUSTOMER_FID ==UID);
 
 
             if (check == null)

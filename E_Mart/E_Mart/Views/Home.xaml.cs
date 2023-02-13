@@ -80,10 +80,14 @@ namespace Views.E_Mart
             }
             async Task UpdateSelectionDataAsync2(IEnumerable<object> currentSelected)
             {
-                var selected = currentSelected.FirstOrDefault() as PRODUCT_tbl;
-                await Navigation.PushAsync(new ProductDetail(selected,App.LoggedInCustomer.CUSTOMER_ID));
+               
+            var selected = currentSelected.FirstOrDefault() as PRODUCT_tbl;
+            var UserId = 0;
+            if (App.LoggedInCustomer != null)
+            {
+                UserId = App.LoggedInCustomer.CUSTOMER_ID;
             }
-
-        
+            await Navigation.PushAsync(new ProductDetail(selected,UserId));
+            }  
     }
 }

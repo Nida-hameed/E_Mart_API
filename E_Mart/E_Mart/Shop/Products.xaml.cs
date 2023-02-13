@@ -57,7 +57,12 @@ namespace E_Mart.Views.Shop
         async Task UpdateSelectionDataAsync1(IEnumerable<object> currentSelected)
         {
             var selected = currentSelected.FirstOrDefault() as PRODUCT_tbl;
-            await Navigation.PushAsync(new ProductDetail(selected,App.LoggedInCustomer.CUSTOMER_ID));
+            var UserId = 0;
+            if(App.LoggedInCustomer != null)
+            {
+                UserId = App.LoggedInCustomer.CUSTOMER_ID;
+            }
+            await Navigation.PushAsync(new ProductDetail(selected, UserId));
             
         }
     }
