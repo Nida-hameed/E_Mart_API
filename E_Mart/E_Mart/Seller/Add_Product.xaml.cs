@@ -122,9 +122,10 @@ namespace E_Mart.Seller
                     ITEM_PRICE = decimal.Parse(txtItemPrice.Text),
                     ImageURL = Image,
                     SELLER_FID = App.LoggedInSeller.SELLER_ID,
+                    STATUS=true,
                 };
                 var responseData = await api.CallApiPostAsync("api/ITEM_tbl_API/AddItem", Item);
-                if(responseData != null)
+                if(responseData == null)
                 {
                     UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Success", "Product Added.", "OK");

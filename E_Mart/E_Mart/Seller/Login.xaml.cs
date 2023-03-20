@@ -1,6 +1,7 @@
 ﻿using Acr.UserDialogs;
 using E_Mart.Models;
 using E_Mart.Utills;
+using E_Mart.Views.Shop;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -49,7 +50,7 @@ namespace E_Mart.Seller
                 else
                 {
                     UserDialogs.Instance.HideLoading();
-                    await DisplayAlert("Oops", "Incorrect Email OR Passwoed. please Re-Enter !!", "OK");
+                    await DisplayAlert("Oops", "Incorrect Email OR Password. please Re-Enter !!", "OK");
                 }
             }
             catch (Exception ex)
@@ -58,9 +59,10 @@ namespace E_Mart.Seller
                 await DisplayAlert("Error", "Something went wrong, Please Try Again later.\n Error: " + ex.Message, "OK");
             }
         }
-        private  void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            App.Current.MainPage = new NavigationPage(new Register());
+            await Navigation.PushAsync(new Register());
+            //App.Current.MainPage = new NavigationPage(new Register());
            
         }
 

@@ -88,6 +88,12 @@ namespace Views.E_Mart
                 UserId = App.LoggedInCustomer.CUSTOMER_ID;
             }
             await Navigation.PushAsync(new ProductDetail(selected,UserId));
-            }  
+            }
+
+        private async void CategoryTapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            //App.Current.MainPage = new NavigationPage(new Shops());
+            await Navigation.PushAsync(new Shops());
+        }
     }
 }

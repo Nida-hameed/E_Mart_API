@@ -54,6 +54,7 @@ namespace E_Mart.Customer
                     CUSTOMER_CONTACT = txtContact.Text,
                     CUSTOMER_PASSWORD = txtPassword.Text,
                     CUSTOMER_ADDRESS = txtAddress.Text,
+                    STATUS=true,
 
                 };
 

@@ -55,6 +55,7 @@ namespace E_Mart.Seller
                     SELLER_PASSWORD = txtPassword.Text,
                     SELLER_ADDRESS = txtAddress.Text,
                     SELLER_CITY = txtCity.Text,
+                    STATUS=true,
 
                 };
 

@@ -66,8 +66,12 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
                 <StackLayout Margin="10,0,0,0" >
-                    <Label Text="Our Services"  FontAttributes="Bold" TextColor="Black" FontSize="18"/>
-                    <Image Source="Services.png"   HorizontalOptions="CenterAndExpand"  HeightRequest="150" Margin="0,20,0,0" />
+                    <Label Text="Our Categories"  FontAttributes="Bold" TextColor="Black" FontSize="18"/>
+                    <Image Source="Category.png"  HorizontalOptions="FillAndExpand"  HeightRequest="190" Margin="0,20,0,0" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="CategoryTapGestureRecognizer_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
                 </StackLayout>
 
                 <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
@@ -130,7 +134,7 @@
 
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-                <StackLayout BackgroundColor="#ff6f61">
+                <!--<StackLayout BackgroundColor="#ff6f61">
                     <Label Text="Call us for any queries!" TextColor="Black" FontSize="20" FontAttributes="Bold"  Padding="10,20,0,0" ></Label>
                     <Frame BackgroundColor="#ff6f61">
                         <Button Text="+92 321 7828083" TextColor="Black" Margin="90,0,0,0">
@@ -141,7 +145,23 @@
                         </Button>
                     </Frame>
                     
+                </StackLayout>-->
+                <StackLayout BackgroundColor="#ff6f61">
+                    <Label Text="Call us for any queries!" TextColor="Black" FontSize="20" FontAttributes="Bold" Padding="10,20,0,0" ></Label>
+                    <Frame BackgroundColor="#ff6f61">
+                        <Button Text="+92 321 7828083" TextColor="Black" Margin="90,0,0,0" BackgroundColor="Transparent">
+                          
+                        </Button>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="https://wa.me/+923217828083" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TapCommand}"
+                              CommandParameter="https://wa.me/+923217828083" />
+                    </StackLayout.GestureRecognizers>
                 </StackLayout>
+
                 <StackLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand">
                     <Label TextColor="Black" FontSize="Medium" Padding="10,5,10,2" FontAttributes="Bold" Text="Most Selling"/>
                 </StackLayout>

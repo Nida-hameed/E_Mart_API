@@ -31,8 +31,8 @@
             </Frame>
 
             <StackLayout  Orientation="Horizontal" Margin="0,10,0,0">
-                <CheckBox IsChecked="False" Color="#ff6f61" />
-                <Label Text="Remember me" TextColor="Black" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+                <!--<CheckBox IsChecked="False" Color="#ff6f61" />
+                <Label Text="Remember me" TextColor="Black" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />-->
 
                 <Label Text="Forgot Password" TextColor="#ff6f61" FontAttributes="Bold" HorizontalOptions="StartAndExpand" Padding="30,0,0,0" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" >
                     <Label.GestureRecognizers>

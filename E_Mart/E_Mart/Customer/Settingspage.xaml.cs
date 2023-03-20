@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using E_Mart.CustomerLoginSystem;
+using E_Mart.User;
 using E_Mart.Utills;
 
 using Xamarin.Forms;
@@ -43,7 +44,7 @@ namespace E_Mart.Customer
                         if (result == true)
                         {
                             UserDialogs.Instance.HideLoading();
-                            await DisplayAlert("Success", " Permanently Delete your account. You wont be able to login with this account .Thank You.", "OK");
+                            await DisplayAlert("Success", " Permanently Deleted your account. You wont be able to login with this account .Thank You.", "OK");
                             App.LoggedInCustomer = null;
                             App.Current.MainPage = new NavigationPage(new Login());
                         }
@@ -72,7 +73,9 @@ namespace E_Mart.Customer
                 if (q)
                 {
                     App.LoggedInCustomer = null;
-                    App.Current.MainPage = new NavigationPage(new CustomerLoginSystem.Login());
+                    //await Navigation.PushAsync(new CustomerLoginSystem.Login());
+                    //App.Current.MainPage = new NavigationPage(new CustomerLoginSystem.Login());
+                    App.Current.MainPage = new UserSideBar();
                 }
             }
             if (select == "Manage Profile")

@@ -25,6 +25,6 @@ namespace E_Mart.Models
 
         public string SELLER_ADDRESS { get; set; }
 
-
+        public bool STATUS { get; set; }
     }
 }

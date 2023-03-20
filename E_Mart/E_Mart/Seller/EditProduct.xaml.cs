@@ -60,6 +60,7 @@ namespace E_Mart.Seller
                     ITEM_DETAIL = txtItemDetail.Text,
                     ITEM_PRICE = decimal.Parse(txtItemPrice.Text),
                     ImageURL = image,
+                    STATUS=true,
                 };
 
                 var modifiedlist = await api.CallApiPostAsync<ITEM_tbl>("api/PRODUCT/EditItem", Item);

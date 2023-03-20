@@ -16,6 +16,7 @@ namespace E_Mart.Models
         public string ImageURL { get; set; }
 
         public int SELLER_FID { get; set; }
+        public bool STATUS { get; set; }
 
 
 

@@ -52,19 +52,19 @@ namespace E_Mart.Seller
                     SELLER_PASSWORD = txtPassword.Text,
                     SELLER_ADDRESS = txtAddress.Text,
                     SELLER_CITY = txtCity.Text,
-
+                    STATUS=true,
                 };
 
-                var responseData = await api.CallApiGetAsync<SELLER_tbl>("api/SELLER_tbl_API/postseller");
+                var responseData = await api.CallApiPostAsync<SELLER_tbl>("api/SELLER_tbl_API/postseller",seller);
 
 
-                if (responseData == null)
+                if (responseData != null)
                 {
                     UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Message", "Email Already Existed.", "OK");
                     await Navigation.PushAsync(new Login());
                 }
-                if (responseData != null)
+                else
                 {
                     UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Success", "Successfully Created!", "OK");

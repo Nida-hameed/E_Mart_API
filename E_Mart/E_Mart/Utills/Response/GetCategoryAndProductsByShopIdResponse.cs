@@ -11,4 +11,5 @@ namespace E_Mart.Utills.Response
         public List<PRO_CATEGORY_tbl> Categories { get; set; }
         public List<PRODUCT_tbl> Products { get; set; }
     }
+
 }

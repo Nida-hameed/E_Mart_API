@@ -47,10 +47,11 @@ namespace E_Mart.CustomerLoginSystem
                     CUSTOMER_EMAIL = txtEmail.Text,
                     CUSTOMER_PASSWORD = txtPassword.Text,
                     CUSTOMER_ADDRESS = txtAddress.Text,
+                    STATUS = true,
                 };
 
                 var addcustomer = await api.CallApiPostAsync("api/CUSTOMER_tbl_API/postcustomer", cus);
-                if (addcustomer == null)
+                if (addcustomer != null)
                 {
                     UserDialogs.Instance.HideLoading();
                     await DisplayAlert("Message", "Email Already Existed.", "OK");

@@ -84,7 +84,7 @@
                                           CommandParameter="https://twitter.com/NidaHam25971667" />
                     </Image.GestureRecognizers>
                 </Image> 
-                <Image>
+                <!--<Image>
                     <Image.Source>
                         <FontImageSource  FontFamily="{DynamicResource FontAwesome}" Glyph="{x:Static helpers:FontAwesome.Warning_sign}" Size="30" Color="#ff6f61" />
                     </Image.Source>
@@ -92,7 +92,7 @@
                         <TapGestureRecognizer Command="{Binding TapCommand}"
                                           CommandParameter="https://wa.me/+923217828083" />
                     </Image.GestureRecognizers>
-                </Image>
+                </Image>-->
                 
             </StackLayout>
 

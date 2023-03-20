@@ -21,6 +21,8 @@ namespace E_Mart.Models
         public string CUSTOMER_PASSWORD { get; set; }
 
         public string CUSTOMER_ADDRESS { get; set; }
+        public bool STATUS { get; set; }
+
 
        
     }
